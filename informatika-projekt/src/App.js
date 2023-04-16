@@ -1,9 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import Title from './components/Title';
+import { useState } from 'react';
+
 
 function App() {
+  const [data,setData] = useState(null)
+  const [zapsat,setZapsano] = useState(false)
   function getData(val){
+    setData(val.target.value)
+    setZapsano(false)
     console.log(val.target.value)
   }
   return (
@@ -11,6 +17,12 @@ function App() {
       <Title name='Events'/>
       <p>Sem zadejte hodnotu:</p>
       <input type='text' onChange={getData}/>
+      <p><button onClick={()=>setZapsano(true)}>Zapsat do tabulky</button></p>
+      {
+        zapsat?         // tohle popisuje if(zapsat == true)
+        <p>{data}</p>
+        :null           // tohle je else
+      }
     </div>
   );
 }
