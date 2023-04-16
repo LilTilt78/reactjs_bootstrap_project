@@ -5,6 +5,11 @@ import { useState } from 'react';
 
 
 function App() {
+  const udaje = [
+    { name: "Janek", age: 37, gender: "Male" },
+    { name: "Jana", age: 54, gender: "Female" },
+    { name: "Jarda", age: 63, gender: "Male"},
+  ]
   const [data,setData] = useState(null)
   const [zapsat,setZapsano] = useState(false)
   function getData(val){
@@ -17,12 +22,29 @@ function App() {
       <Title name='Events'/>
       <p>Sem zadejte hodnotu:</p>
       <input type='text' onChange={getData}/>
-      <p><button onClick={()=>setZapsano(true)}>Zapsat do tabulky</button></p>
+      {/* <p><button onClick={()=>setZapsano(true)}>Zapsat do tabulky</button></p>
       {
         zapsat?         // tohle popisuje if(zapsat == true)
         <p>{data}</p>
         :null           // tohle je else
-      }
+      } */}
+      <p></p>
+      <table className='center'>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+        </tr>
+        {udaje.map((val, key) => {
+          return (
+            <tr key={key}>
+              <td>{val.name}</td>
+              <td>{val.age}</td>
+              <td>{val.gender}</td>
+            </tr>
+          )
+        })}
+      </table>
     </div>
   );
 }
