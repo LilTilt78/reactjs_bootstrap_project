@@ -1,4 +1,5 @@
 //import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 import Title from './components/Title';
 import { useState } from 'react';
@@ -15,25 +16,28 @@ function App() {
     { name: "Tyler", activity: "Basketball", email: "tyler.basketballer@gmail.com" },
     { name: "Paul", activity: "Icehockey", email: "paul.icehockeyplayer@gmail.com"},
   ]
+  // const [data,setData] = useState(null)
+  // const [zapsat,setZapsano] = useState(false)
+  // function getData(val){
+  //   setData(val.target.value)
+  //   setZapsano(false)
+  //   console.log(val.target.value)
+
   const [data,setData] = useState(null)
-  const [zapsat,setZapsano] = useState(false)
-  function getData(val){
-    setData(val.target.value)
-    setZapsano(false)
-    console.log(val.target.value)
+  function getInputData(event){
+    setData(event.target.value)
+    console.log("Event: ", event.target.value)
+  }
+  function printData(data){
+    const value = this.data.value
   }
   return (
     <div className="App">
       <Title name='Events'/>
       <p>Sem zadejte hodnotu:</p>
-      <input type='text' size={100} onChange={getData}/>
+      <input type='text' size={100} onChange={getInputData}/>
       <p>(jednotlivé údaje prosím oddělte čárkami)</p>
-      <p><button onClick={()=>setZapsano(true)}>ZAPSAT</button></p>
-      {
-        zapsat?         // tohle popisuje if(zapsat == true)
-        <p>{data}</p>
-        :null           // tohle je else
-      }
+      <p><button onClick={printData}>ZAPSAT</button></p>
       <table className='center'>
         <tr>
           <th>Name</th>
