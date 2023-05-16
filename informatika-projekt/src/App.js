@@ -23,19 +23,21 @@ function App() {
   //   setZapsano(false)
   //   console.log(val.target.value)
 
-  const [data,setData] = useState(null)
+  const [data,setData] = useState([])
   function getInputData(event){
-    setData(event.target.value)
+    const pomoc = [...data,event.target.value]
+    setData(pomoc)
     console.log("Event: ", event.target.value)
   }
-  function printData(data){
-    const value = this.data.value
+  function printData(){
+    const value = data
+    console.log("value:",value)
   }
   return (
     <div className="App">
       <Title name='Events'/>
       <p>Sem zadejte hodnotu:</p>
-      <input type='text' size={100} onChange={getInputData}/>
+      <input type='text' size={100} onChange={(event) => getInputData(event)}/>
       <p>(jednotlivé údaje prosím oddělte čárkami)</p>
       <p><button onClick={printData}>ZAPSAT</button></p>
       <table className='center'>
