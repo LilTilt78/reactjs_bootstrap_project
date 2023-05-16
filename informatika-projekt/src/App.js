@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import Title from './components/Title';
 import { useState } from 'react';
@@ -26,14 +26,14 @@ function App() {
     <div className="App">
       <Title name='Events'/>
       <p>Sem zadejte hodnotu:</p>
-      <input type='text' onChange={getData}/>
-      <p><button onClick={()=>setZapsano(true)}>Zapsat</button></p>
+      <input type='text' size={100} onChange={getData}/>
+      <p>(jednotlivé údaje prosím oddělte čárkami)</p>
+      <p><button onClick={()=>setZapsano(true)}>ZAPSAT</button></p>
       {
         zapsat?         // tohle popisuje if(zapsat == true)
         <p>{data}</p>
         :null           // tohle je else
       }
-      <p></p>
       <table className='center'>
         <tr>
           <th>Name</th>
@@ -74,7 +74,7 @@ function App() {
 
 export default App;
 
-{/* <header className="App-header">
+/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Projekt z informatiky!
@@ -87,4 +87,4 @@ export default App;
         >
           Learn React
         </a>
-      </header> */}
+      </header> */

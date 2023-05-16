@@ -1,5 +1,2 @@
-[
-    { "name": "Andy", "activity": "Football", "email": "andy.footballer@gmail.com" },
-    { "name": "Tyler", "activity": "Basketball", "email": "tyler.basketballer@gmail.com" },
-    { "name": "Paul", "activity": "Icehockey", "email": "paul.icehockeyplayer@gmail.com"}
-  ]
+[ {"id":1,"name":"Akshit","city":"Moradabad"} 
+]
