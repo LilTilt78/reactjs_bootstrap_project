@@ -1,96 +1,50 @@
 //import logo from './logo.svg';
 import React from 'react';
-import './App.css';
-import Title from './components/Title';
 import { useState } from 'react';
+import './App.css';
+import { Table } from "./components/Table";
+import { Modal } from './components/Modal';
+//import Title from './components/Title';
+
 
 
 function App() {
-  const udaje1 = [
-    { name: "Janek", age: 37, gender: "Male" },
-    { name: "Jana", age: 54, gender: "Female" },
-    { name: "Jarda", age: 63, gender: "Male"},
-  ]
-  const udaje2 = [
-    { name: "Andy", activity: "Football", email: "andy.footballer@gmail.com" },
-    { name: "Tyler", activity: "Basketball", email: "tyler.basketballer@gmail.com" },
-    { name: "Paul", activity: "Icehockey", email: "paul.icehockeyplayer@gmail.com"},
-  ]
-  // const [data,setData] = useState(null)
-  // const [zapsat,setZapsano] = useState(false)
-  // function getData(val){
-  //   setData(val.target.value)
-  //   setZapsano(false)
-  //   console.log(val.target.value)
+  // const [data,setData] = useState([])
+  // function getInputData(event){
+  //   const pomoc = [...data, event.target.value]
+  //   setData(pomoc)
+  //   console.log("Event: ", event.target.value)
+  // }
+  // function printData(){
+  //   const value = data
+  //   console.log("value:",value)
+  // }
+  
+  const [modalOpen, setModalOpen] = useState(false)
 
-  const [data,setData] = useState([])
-  function getInputData(event){
-    const pomoc = [...data,event.target.value]
-    setData(pomoc)
-    console.log("Event: ", event.target.value)
-  }
-  function printData(){
-    const value = data
-    console.log("value:",value)
-  }
+  const rows = [
+    {udalost: "Událost1", popis: "Popis události1", stav: "Nadcházející"},
+    {udalost: "Událost2", popis: "Popis události2", stav: "Probíhá"},
+    {udalost: "Událost3", popis: "Popis události3", stav: "Ukončeno"},
+  ];
+
   return (
+    // <div className="App">
+    //   <Title name='Events'/>
+    //   <p>Sem zadejte hodnotu:</p>
+    //   <input type='text' size={100} onChange={(event) => getInputData(event)}/>
+    //   <p><button onClick={printData}>ZAPSAT</button></p>
+      
+    // </div>
+
     <div className="App">
-      <Title name='Events'/>
-      <p>Sem zadejte hodnotu:</p>
-      <input type='text' size={100} onChange={(event) => getInputData(event)}/>
-      <p>(jednotlivé údaje prosím oddělte čárkami)</p>
-      <p><button onClick={printData}>ZAPSAT</button></p>
-      <table className='center'>
-        <tr>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Gender</th>
-        </tr>
-        {udaje1.map((val, key) => {
-          return (
-            <tr key={key}>
-              <td>{val.name}</td>
-              <td>{val.age}</td>
-              <td>{val.gender}</td>
-            </tr>
-          )
-        })}
-      </table>
-      <p></p>
-      <p></p>
-      <table className='center'>
-        <tr>
-          <th>Name</th>
-          <th>Activity</th>
-          <th>Email</th>
-        </tr>
-        {udaje2.map((val, key) => {
-          return (
-            <tr key={key}>
-              <td>{val.name}</td>
-              <td>{val.activity}</td>
-              <td>{val.email}</td>
-            </tr>
-          )
-        })}
-      </table>
+      <h1>Tabulka pro přidávání a editace událostí</h1>
+      <Table rows={rows}/>
+      <button className='btn' onClick={() => setModalOpen(true)}>Přidat</button>
+      {modalOpen && <Modal closeModal={() => {setModalOpen(false)}} />}
     </div>
+
   );
 }
 
 export default App;
-
-/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Projekt z informatiky!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */

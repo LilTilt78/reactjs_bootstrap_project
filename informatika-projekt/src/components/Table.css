@@ -1,0 +1,77 @@
+.table-wrapper{
+    width: 100%;
+}
+
+.table{
+    display: block;
+    overflow: hidden;
+    table-layout: auto;
+    border-collapse: collapse;
+    box-shadow: 0px 10px 10px #ccc;
+    border-radius: 10px;
+    white-space: nowrap;
+    width: 100em;
+    max-width: 80%;
+    margin: auto;
+    overflow-x: auto;
+}
+
+.table thead{
+    background-color: aquamarine;
+    color: black;
+}
+
+.table th, .table td{
+    padding: 0.8rem;
+}
+
+.table td{
+    border-top: 1px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.table tbody tr:hover{
+    background-color: #eee;
+}
+
+.expand{
+    width: 100%;
+}
+
+.label{
+    border-radius: 3px;
+    padding: 0.3rem;
+}
+
+.label-nadchazejici{
+    background-color: #00ff1a;
+    color: black;
+}
+
+.label-probiha{
+    background-color: #f2ff00;
+    color: black;
+}
+
+.label-ukonceno{
+    background-color: #404040;
+    color: white;
+}
+
+.actions{
+    display: flex;
+    justify-content: space-around;
+}
+
+.actions svg{
+    cursor: pointer;
+}
+
+.btn-delete{
+    color: red;
+}
+
+.btn-customize{
+    color: blue;
+}
