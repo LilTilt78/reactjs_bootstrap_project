@@ -10,7 +10,7 @@ import { Modal } from './components/Modal';
 
 function App() {
   
-  const [modalOpen, setModalOpen] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false);
 
   const [rows, setRows] = useState([
     {udalost: "Událost1", popis: "Popis události1", stav: "nadcházející"},
@@ -22,17 +22,30 @@ function App() {
     setRows(rows.filter((_, idx) => idx !== targetIndex))
   };
 
+  const [rowToEdit, setRowToEdit] = useState(null);
+
+  const handleEditRow = (idx) => {
+    setRowToEdit(idx);
+    setModalOpen(true);
+  }
+
   const handleAddRow = (newRow) => {
-    setRows([...rows, newRow])
+    rowToEdit === null ?
+    setRows([...rows, newRow]) : 
+    setRows(rows.map((currRow, idx) => {
+      if(idx !== rowToEdit) return currRow;
+      return newRow;
+    }));
   };
+
 
   return (
 
     <div className="App">
       <h1>Tabulka pro přidávání a editace událostí</h1>
-      <Table rows={rows} deleteRow={handleDeleteRow} />
+      <Table rows={rows} deleteRow={handleDeleteRow} editRow={handleEditRow}/>
       <button className='btn' onClick={() => setModalOpen(true)}>Přidat</button>
-      {modalOpen && <Modal closeModal={() => {setModalOpen(false)}} onAdd={handleAddRow}/>}
+      {modalOpen && <Modal closeModal={() => {setModalOpen(false); setRowToEdit(null)}} onAdd={handleAddRow} defaultValue={rowToEdit!==null && rows[rowToEdit]}/>}
     </div>
 
   );

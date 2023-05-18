@@ -2,13 +2,32 @@ import React from "react";
 import { useState } from 'react';
 import "./Modal.css";
 
-export const Modal = ({closeModal, onAdd}) => {
+export const Modal = ({closeModal, onAdd, defaultValue}) => {
 
-    const [formState, setFormState] = useState({
+    const [formState, setFormState] = useState(defaultValue || {
         udalost: "",
         popis: "",
         stav: "nadcházející"
     });
+
+    const [errors, setErrors] = useState("")
+
+    const validateForm = () => {
+        if(formState.udalost && formState.popis && formState.stav){
+            setErrors("")
+            return true
+        }
+        else {
+            let errorFields = [];
+            for(const [key, value] of Object.entries(formState)){
+                if(!value){
+                    errorFields.push(key);
+                }
+            }
+            setErrors(errorFields.join(", "));
+            return false
+        }
+    };
 
     const handleChange = (e) => {
         setFormState({
@@ -19,7 +38,8 @@ export const Modal = ({closeModal, onAdd}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onAdd(formState)
+        if(!validateForm()) return;
+        onAdd(formState);
         closeModal();
     };
 
@@ -43,6 +63,7 @@ export const Modal = ({closeModal, onAdd}) => {
                             <option value="ukončeno">Ukončeno</option>
                         </select>
                     </div>
+                    {errors && <div className="error">{`Prosím zadejte: ${errors}`}</div>}
                     <button type="submit" className="btn" onClick={handleSubmit}>Uložit</button>
                 </form>
             </div>
