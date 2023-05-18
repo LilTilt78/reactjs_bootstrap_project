@@ -44,17 +44,17 @@
     padding: 0.3rem;
 }
 
-.label-nadchazejici{
+.label-nadcházející{
     background-color: #00ff1a;
     color: black;
 }
 
-.label-probiha{
+.label-probíhá{
     background-color: #f2ff00;
     color: black;
 }
 
-.label-ukonceno{
+.label-ukončeno{
     background-color: #404040;
     color: white;
 }
@@ -73,5 +73,5 @@
 }
 
 .btn-customize{
-    color: blue;
+    color: green;
 }

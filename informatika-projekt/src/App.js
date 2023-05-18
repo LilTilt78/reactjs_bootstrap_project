@@ -9,39 +9,30 @@ import { Modal } from './components/Modal';
 
 
 function App() {
-  // const [data,setData] = useState([])
-  // function getInputData(event){
-  //   const pomoc = [...data, event.target.value]
-  //   setData(pomoc)
-  //   console.log("Event: ", event.target.value)
-  // }
-  // function printData(){
-  //   const value = data
-  //   console.log("value:",value)
-  // }
   
   const [modalOpen, setModalOpen] = useState(false)
 
-  const rows = [
-    {udalost: "Událost1", popis: "Popis události1", stav: "Nadcházející"},
-    {udalost: "Událost2", popis: "Popis události2", stav: "Probíhá"},
-    {udalost: "Událost3", popis: "Popis události3", stav: "Ukončeno"},
-  ];
+  const [rows, setRows] = useState([
+    {udalost: "Událost1", popis: "Popis události1", stav: "nadcházející"},
+    {udalost: "Událost2", popis: "Popis události2", stav: "probíhá"},
+    {udalost: "Událost3", popis: "Popis události3", stav: "ukončeno"},
+  ]);
+
+  const handleDeleteRow = (targetIndex) => {
+    setRows(rows.filter((_, idx) => idx !== targetIndex))
+  };
+
+  const handleAddRow = (newRow) => {
+    setRows([...rows, newRow])
+  };
 
   return (
-    // <div className="App">
-    //   <Title name='Events'/>
-    //   <p>Sem zadejte hodnotu:</p>
-    //   <input type='text' size={100} onChange={(event) => getInputData(event)}/>
-    //   <p><button onClick={printData}>ZAPSAT</button></p>
-      
-    // </div>
 
     <div className="App">
       <h1>Tabulka pro přidávání a editace událostí</h1>
-      <Table rows={rows}/>
+      <Table rows={rows} deleteRow={handleDeleteRow} />
       <button className='btn' onClick={() => setModalOpen(true)}>Přidat</button>
-      {modalOpen && <Modal closeModal={() => {setModalOpen(false)}} />}
+      {modalOpen && <Modal closeModal={() => {setModalOpen(false)}} onAdd={handleAddRow}/>}
     </div>
 
   );

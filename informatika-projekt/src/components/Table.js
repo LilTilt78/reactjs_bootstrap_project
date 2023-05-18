@@ -2,7 +2,7 @@ import React from "react";
 import "./Table.css";
 import {BsFillTrashFill, BsFillPencilFill} from 'react-icons/bs'
 
-export const Table = ({rows}) => {
+export const Table = ({rows, deleteRow}) => {
     return (
         <div className="table-wrapper">
             <table className="table">
@@ -17,54 +17,22 @@ export const Table = ({rows}) => {
                 <tbody>
                     {
                         rows.map((row, idx) => {
+                            const stavText = row.stav.charAt(0).toUpperCase()+row.stav.slice(1);    // předělání prvního písmena na velké
                             return <tr key={idx}>
                                 <td>{row.udalost}</td>
                                 <td className="expand">{row.popis}</td>
                                 <td>
-                                <span className={'label label-${row.status}'}>{row.stav}</span>
+                                <span className={`label label-${row.stav}`}>{stavText}</span>
+                                </td>
+                                <td>
+                                    <span className="actions">
+                                        <BsFillTrashFill className="btn-delete" onClick={() => deleteRow(idx)}/>
+                                        <BsFillPencilFill className="btn-customize"/>
+                                    </span>
                                 </td>
                             </tr>
                         })
                     }
-                    <tr>
-                        <td>Vysvědčení</td>
-                        <td>Toto popisuje událost "Vysvědčení"</td>
-                        <td>
-                            <span className="label label-nadchazejici">Nadcházející</span>  
-                        </td>
-                        <td>
-                            <span className="actions">
-                                <BsFillTrashFill className="btn-delete"/>
-                                <BsFillPencilFill className="btn-customize"/>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Sportovní týden</td>
-                        <td>Toto popisuje událost "Sportovní týden"</td>
-                        <td>
-                            <span className="label label-ukonceno">Ukončeno</span>
-                        </td>
-                        <td>
-                            <span className="actions">
-                                <BsFillTrashFill className="btn-delete"/>
-                                <BsFillPencilFill className="btn-customize"/>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Focení</td>
-                        <td>Toto popisuje událost "Focení"</td>
-                        <td>
-                            <span className="label label-probiha">Probíhá</span>
-                        </td>
-                        <td>
-                            <span className="actions">
-                                <BsFillTrashFill className="btn-delete"/>
-                                <BsFillPencilFill className="btn-customize"/>
-                            </span>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>
