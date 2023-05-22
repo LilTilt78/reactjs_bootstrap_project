@@ -5,11 +5,15 @@ import './App.css';
 import { Table } from "./components/Table";
 import { Modal } from './components/Modal';
 //import Title from './components/Title';
-
+import {ButtonEventSelect} from './components/ButtonEventSelect'
+import { useSelector } from 'react-redux';
 
 
 function App() {
   
+  const events = useSelector(state => state.events);
+  
+  console.log("MILUJU KRECKA",events);
   const [modalOpen, setModalOpen] = useState(false);
 
   const [rows, setRows] = useState([
@@ -42,6 +46,7 @@ function App() {
   return (
 
     <div className="App">
+      <ButtonEventSelect />
       <h1>Tabulka pro přidávání a editace událostí</h1>
       <Table rows={rows} deleteRow={handleDeleteRow} editRow={handleEditRow}/>
       <button className='btn' onClick={() => setModalOpen(true)}>Přidat</button>
