@@ -5,6 +5,7 @@ import {BsFillTrashFill, BsFillPencilFill} from 'react-icons/bs'
 export const Table = ({rows, deleteRow, editRow}) => {
     return (
         <div className="table-wrapper">
+            <EventSelect />
             <table className="table">
                 <thead>
                     <tr>
