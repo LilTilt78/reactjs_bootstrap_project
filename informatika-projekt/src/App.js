@@ -7,7 +7,8 @@ import './App.css';
 //import Title from './components/Title';
 import { EventSelect } from './components/ButtonEventSelect'
 //import { useSelector } from 'react-redux';
-//import  EventEditor  from './pages/EventsEditor';
+import  EventEditor  from './pages/EventsEditor';
+
 
 
 function App() {
@@ -48,8 +49,9 @@ function App() {
   return (
 
     <div className="App">
-      {/* <EventEditor /> */}
       <EventSelect />
+      <p></p>
+      <EventEditor />
       {/* <h1>Tabulka pro přidávání a editace událostí</h1>
       <Table rows={rows} deleteRow={handleDeleteRow} editRow={handleEditRow}/>
       <button className='btn' onClick={() => setModalOpen(true)}>Přidat</button>

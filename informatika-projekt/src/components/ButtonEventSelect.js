@@ -22,7 +22,7 @@ export const EventSelect= () => {
  
   return (
     <div>
-      <button className="btn" onClick={fetchData} disabled={dataLoaded} >Load</button>
+      <button className="btn" onClick={fetchData} disabled={dataLoaded}>Load Data</button>
     </div>
   )
 }
