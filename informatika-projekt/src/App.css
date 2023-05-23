@@ -33,3 +33,8 @@
 .table-presences td{
   border: 1px solid;
 }
+
+.table-presences span {
+  font-style: italic;
+  font-weight: 500;
+}

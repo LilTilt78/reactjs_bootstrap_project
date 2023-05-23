@@ -15,16 +15,16 @@ export default function TablePresencies(props) {
                       </thead>
                       <tbody>
                       <tr>
-                          <td>Presence Type ID: {presence.presenceType.id} </td>
-                          <td>Presence Type Name: {presence.presenceType.name} </td>
+                          <td><span>Presence Type ID:</span> {presence.presenceType.id} </td>
+                          <td><span>Presence Type Name:</span> {presence.presenceType.name} </td>
                       </tr>
                       <tr>
-                        <td>Invitation Type ID: {presence.invitationType.id} </td>
-                        <td>Invitation Type Name: {presence.invitationType.name} </td>
+                        <td><span>Invitation Type ID:</span> {presence.invitationType.id} </td>
+                        <td><span>Invitation Type Name:</span> {presence.invitationType.name} </td>
                       </tr>
                       <tr>
-                        <td>User ID: {presence.user.id} </td>
-                        <td>User Email: {presence.user.email} </td>
+                        <td><span>User ID:</span> {presence.user.id} </td>
+                        <td><span>User Email:</span> {presence.user.email} </td>
                       </tr>
                       </tbody>
                     </table>
