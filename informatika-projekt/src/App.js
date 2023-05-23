@@ -45,12 +45,11 @@ function App() {
   //   }));
   // };
 
-
   return (
 
     <div className="App">
       <EventSelect />
-      <p></p>
+      <h1>EventPage</h1>
       <EventEditor />
       {/* <h1>Tabulka pro přidávání a editace událostí</h1>
       <Table rows={rows} deleteRow={handleDeleteRow} editRow={handleEditRow}/>
