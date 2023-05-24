@@ -2,7 +2,7 @@
     width: 100%;
 }
 
-.table{
+.table-udalosti{
     display: block;
     overflow: hidden;
     table-layout: auto;
@@ -16,22 +16,22 @@
     overflow-x: auto;
 }
 
-.table thead{
+.table-udalosti thead{
     background-color: aquamarine;
     color: black;
 }
 
-.table th, .table td{
+.table-udalosti th, .table-udalosti td{
     padding: 0.8rem;
 }
 
-.table td{
+.table-udalosti td{
     border-top: 1px solid #ddd;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.table tbody tr:hover{
+.table-udalosti tbody tr:hover{
     background-color: #eee;
 }
 
@@ -74,4 +74,16 @@
 
 .btn-customize{
     color: green;
+}
+
+.btn-table{
+    border: none;
+    margin-top: 1rem;
+    background-color: #1d4ed8;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 5px 5px #ccc;
+    margin-bottom: 20px;
 }

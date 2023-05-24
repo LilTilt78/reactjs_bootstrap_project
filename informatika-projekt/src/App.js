@@ -1,9 +1,9 @@
 //import logo from './logo.svg';
 import React from 'react';
-//import { useState } from 'react';
+import { useState } from 'react';
 import './App.css';
-// import { Table } from "./components/Table";
-// import { Modal } from './components/Modal';
+import { Table } from "./components/Table";
+import { Modal } from './components/Modal';
 //import Title from './components/Title';
 import { EventSelect } from './components/ButtonEventSelect'
 //import { useSelector } from 'react-redux';
@@ -17,33 +17,33 @@ function App() {
 
   // console.log("Vypis dat",events);
 
-  // const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
-  // const [rows, setRows] = useState([
-  //   {udalost: "Událost1", popis: "Popis události1", stav: "nadcházející"},
-  //   {udalost: "Událost2", popis: "Popis události2", stav: "probíhá"},
-  //   {udalost: "Událost3", popis: "Popis události3", stav: "ukončeno"},
-  // ]);
+  const [rows, setRows] = useState([
+    {udalost: "Událost1", popis: "Popis události1", stav: "nadcházející"},
+    {udalost: "Událost2", popis: "Popis události2", stav: "probíhá"},
+    {udalost: "Událost3", popis: "Popis události3", stav: "ukončeno"},
+  ]);
 
-  // const handleDeleteRow = (targetIndex) => {
-  //   setRows(rows.filter((_, idx) => idx !== targetIndex))
-  // };
+  const handleDeleteRow = (targetIndex) => {
+    setRows(rows.filter((_, idx) => idx !== targetIndex))
+  };
 
-  // const [rowToEdit, setRowToEdit] = useState(null);
+  const [rowToEdit, setRowToEdit] = useState(null);
 
-  // const handleEditRow = (idx) => {
-  //   setRowToEdit(idx);
-  //   setModalOpen(true);
-  // }
+  const handleEditRow = (idx) => {
+    setRowToEdit(idx);
+    setModalOpen(true);
+  }
 
-  // const handleAddRow = (newRow) => {
-  //   rowToEdit === null ?
-  //   setRows([...rows, newRow]) : 
-  //   setRows(rows.map((currRow, idx) => {
-  //     if(idx !== rowToEdit) return currRow;
-  //     return newRow;
-  //   }));
-  // };
+  const handleAddRow = (newRow) => {
+    rowToEdit === null ?
+    setRows([...rows, newRow]) : 
+    setRows(rows.map((currRow, idx) => {
+      if(idx !== rowToEdit) return currRow;
+      return newRow;
+    }));
+  };
 
   return (
 
@@ -51,10 +51,10 @@ function App() {
       <EventSelect />
       <h1>EventPage</h1>
       <EventEditor />
-      {/* <h1>Tabulka pro přidávání a editace událostí</h1>
+      <h1>Tabulka pro přidávání a editace událostí</h1>
       <Table rows={rows} deleteRow={handleDeleteRow} editRow={handleEditRow}/>
-      <button className='btn' onClick={() => setModalOpen(true)}>Přidat</button>
-      {modalOpen && <Modal closeModal={() => {setModalOpen(false); setRowToEdit(null)}} onAdd={handleAddRow} defaultValue={rowToEdit!==null && rows[rowToEdit]}/>} */}
+      <button className='btn-table' onClick={() => setModalOpen(true)}>Přidat</button>
+      {modalOpen && <Modal closeModal={() => {setModalOpen(false); setRowToEdit(null)}} onAdd={handleAddRow} defaultValue={rowToEdit!==null && rows[rowToEdit]}/>}
     </div>
 
   );
