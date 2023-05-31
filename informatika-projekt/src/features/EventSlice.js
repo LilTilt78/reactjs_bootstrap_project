@@ -10,12 +10,24 @@ export const eventSlice = createSlice({
         const events = action.payload
         state = [...state, ...events]
         return state
-        }
+        },
+      
+      addData: (state, action) => {
+          const newData = action.payload
+          state.push(newData)
+          return state
+      }, 
+      
+      updateData: (state, action) => {
+          const updateData = action.payload
+          state = state.map(data => data.id === updateData.id ? {...data, ...updateData} : data)
+          return state
+      },
   },
 })
 
 // Export the addProject action creator from the projectsSlice
-export const { loadData } = eventSlice.actions
+export const { loadData, addData, updateData } = eventSlice.actions
 
 // Export the projectsSlice reducer
 export default eventSlice.reducer

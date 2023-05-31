@@ -1,10 +1,10 @@
-import { authorizedFetch } from '../queries/authorizedFetch'
+import { authorizedFetch } from './authorizedFetch';
 
 /**
  * Funkce
  *  
  */
-export const GroupsSelectQueryJSON = () => ({
+export const EventsQueryJSON = () => ({
     "query":
         `{
           eventPage {
@@ -36,7 +36,7 @@ export const GroupsSelectQueryJSON = () => ({
  * Realizace dotazu na server. Vyuziva autorizedFetch (zapouzdreni)
  */
 
-export const GroupsSelectQuery = () =>
+export const EventsQuery = () =>
     authorizedFetch('/gql', {
-        body: JSON.stringify(GroupsSelectQueryJSON()),
+        body: JSON.stringify(EventsQueryJSON()),
     })

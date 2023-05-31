@@ -1,6 +1,6 @@
 import { authorizedFetch } from './authorizedFetch';
 
-const GroupsSelectQueryJSON = (id, lastchange, newName) => ({
+const EventsMutationJSON = (id, lastchange, newName) => ({
   query: `
     mutation {
       eventUpdate(event: {
@@ -19,7 +19,7 @@ const GroupsSelectQueryJSON = (id, lastchange, newName) => ({
   `
 });
 
-export const EventNameMutation = (props) => 
+export const EventsMutation = (props) => 
   authorizedFetch('/gql', {
-    body: JSON.stringify(GroupsSelectQueryJSON(props.id, props.lastchange, props.newName))
+    body: JSON.stringify(EventsMutationJSON(props.id, props.lastchange, props.newName))
   })

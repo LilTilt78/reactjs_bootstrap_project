@@ -5,10 +5,10 @@ import './App.css';
 import { Table } from "./components/Table";
 import { Modal } from './components/Modal';
 //import Title from './components/Title';
-import { EventSelect } from './components/ButtonEventSelect'
+import { EventSelect } from './components/ButtonEventSelect';
 //import { useSelector } from 'react-redux';
 import  EventEditor  from './pages/EventsEditor';
-
+import { EventsLoader } from './actions/EventsDataLoader';
 
 
 function App() {
@@ -49,12 +49,13 @@ function App() {
 
     <div className="App">
       <EventSelect />
+      <EventsLoader />
       <h1>EventPage</h1>
       <EventEditor />
-      <h1>Tabulka pro přidávání a editace událostí</h1>
+      {/* <h1>Tabulka pro přidávání a editace událostí</h1>
       <Table rows={rows} deleteRow={handleDeleteRow} editRow={handleEditRow}/>
       <button className='btn-table' onClick={() => setModalOpen(true)}>Přidat</button>
-      {modalOpen && <Modal closeModal={() => {setModalOpen(false); setRowToEdit(null)}} onAdd={handleAddRow} defaultValue={rowToEdit!==null && rows[rowToEdit]}/>}
+      {modalOpen && <Modal closeModal={() => {setModalOpen(false); setRowToEdit(null)}} onAdd={handleAddRow} defaultValue={rowToEdit!==null && rows[rowToEdit]}/>} */}
     </div>
 
   );

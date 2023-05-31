@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { loadData } from '../features/EventSlice';
 import { useState } from 'react';
 
-export const EventSelect= () => {
+export const EventsLoader= () => {
 
   const dispatch = useDispatch()  
   const [dataLoaded, setDataLoaded] = useState(false)
@@ -22,7 +22,7 @@ export const EventSelect= () => {
  
   return (
     <div>
-      <button className="btn" onClick={fetchData} disabled={dataLoaded}>Load Data</button>
+      <button className="btn" onClick={fetchData} disabled={dataLoaded}>{dataLoaded ? 'Data Loaded' : 'Load Data'}</button>
     </div>
   )
 }
