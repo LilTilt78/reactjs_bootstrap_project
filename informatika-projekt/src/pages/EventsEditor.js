@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 //import { EventSelect } from '../components/ButtonEventSelect';
 import TablePresencies from '../components/TablePresences';
+import { EventsEdit } from '../components/EditEventButton';
 
 export default function EventEditor() {
     const events = useSelector(state => state.events);
@@ -29,6 +30,13 @@ export default function EventEditor() {
                           <td>Presences:</td>
                         </tr>
                       </thead>
+                      <EventsEdit 
+                        evId={event.id}
+                        evName={event.name}
+                        evLastChange={event.lastchange}
+                        evStartDate={event.startdate}
+                        evEndDate={event.enddate}
+                      />
                       <tbody>
                         <tr>
                           <td><TablePresencies presences={event.presences} /></td>

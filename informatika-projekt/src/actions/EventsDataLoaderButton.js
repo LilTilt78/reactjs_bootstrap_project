@@ -1,4 +1,5 @@
-import  { EventsQuery }  from '../queries/EventQuery';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import  { EventsQuery }  from '../queries/EventsQuery';
 import { useDispatch } from 'react-redux';
 import { loadData } from '../features/EventSlice';
 import { useState } from 'react';
@@ -22,7 +23,7 @@ export const EventsLoader= () => {
  
   return (
     <div>
-      <button className="btn" onClick={fetchData} disabled={dataLoaded}>{dataLoaded ? 'Data Loaded' : 'Load Data'}</button>
+      <button className='btn btn-info' onClick={fetchData} disabled={dataLoaded}>{dataLoaded ? 'Data Loaded' : 'Load Data'}</button>
     </div>
   )
 }
