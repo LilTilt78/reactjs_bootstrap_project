@@ -3,20 +3,21 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'jquery/dist/jquery.min.js';
 import React from "react";
 
-export const EventsUpravit= (props) => {
+export const EditPresences= (props) => {
 
+  
     
    
     return (
       <div className="container p-2">
 
-        <button type="button" className="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#myModal">Upravit</button>
-        <div className="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <button type="button" className="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModal3" data-bs-dismiss="modal">Upravit</button>
+        <div className="modal fade" id="#exampleModal3" tabIndex="-1"  aria-hidden="true">
           <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div className="modal-content">
               <div className="modal-header">
                 <h1 className="modal-title fs-5" id="staticBackdropLabel">Úprava prezence: {props.presenceId}</h1>
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" className="btn-close" data-bs-dismiss="modal3" aria-label="Close"></button>
               </div>
               <div className="modal-body">
                 <table>

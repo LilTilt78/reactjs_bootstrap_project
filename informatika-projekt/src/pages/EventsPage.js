@@ -1,13 +1,24 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 //import { EventSelect } from '../components/ButtonEventSelect';
-import TablePresencies from '../components/TablePresences';
+import { TablePresencies}  from '../components/TablePresences';
 import { EventsEdit } from '../components/EditEventButton';
+import Card from "react-bootstrap/Card";
+import { useEffect } from 'react';
+import { EventsLoader } from '../actions/EventsDataLoaderButton';
+import { EventsUpdater } from '../actions/EventsMutationLoaderButton';
+import { ShowPresences } from '../components/ShowPresences';
 
-export default function EventEditor() {
-    const events = useSelector(state => state.events);
+export const EventsPage = () => {
+    const events = useSelector((state) => state.events);
   
     return (
       <div className="container ">
+        <div className='container-fluid bg-info text-center'>
+          <h1>Event Page</h1>
+        </div>
+        <div className='container text-center p-2'>
+          <EventsLoader />
+        </div>
             { events.map((event)=> 
                     <table className ="table" key={event.id}>
                       <thead>
@@ -37,13 +48,18 @@ export default function EventEditor() {
                         evStartDate={event.startdate}
                         evEndDate={event.enddate}
                       />
+                      <TablePresencies presences={event.presences} />
+                      {/* <ShowPresences presences={event.presences}/> */}
                       <tbody>
                         <tr>
-                          <td><TablePresencies presences={event.presences} /></td>
+                          {/* <td><TablePresencies presences={event.presences} /></td> */}
                         </tr>
                       </tbody>
                     </table>
             )}
+        <div className='container text-center p-2'>
+          <EventsUpdater />
+        </div>
       </div>
     );
   }
