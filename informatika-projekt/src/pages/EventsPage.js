@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { EventsLoader } from '../actions/EventsDataLoaderButton';
 import { EventsUpdater } from '../actions/EventsMutationLoaderButton';
 import { ShowPresences } from '../components/ShowPresences';
+import { AddEvent } from '../components/AddEventButton';
 
 export const EventsPage = () => {
     const events = useSelector((state) => state.events);
@@ -18,6 +19,9 @@ export const EventsPage = () => {
         </div>
         <div className='container text-center p-2'>
           <EventsLoader />
+        </div>
+        <div>
+          <AddEvent />
         </div>
             { events.map((event)=> 
                     <table className ="table" key={event.id}>

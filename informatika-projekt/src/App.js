@@ -2,7 +2,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { useState } from 'react';
-//import './App.css';
+import './App.css';
 import { Table } from "./components/Table";
 import { Modal } from './components/Modal';
 //import Title from './components/Title';
