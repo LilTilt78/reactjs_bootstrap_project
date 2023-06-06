@@ -17,7 +17,6 @@ import { EventsEdit } from './components/EditEventButton';
 function App() {
 
   return (
-
     <div className="App">
       <EventsPage />
     </div>

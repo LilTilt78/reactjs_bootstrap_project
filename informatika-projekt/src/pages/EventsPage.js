@@ -2,27 +2,32 @@ import { useDispatch, useSelector } from 'react-redux';
 //import { EventSelect } from '../components/ButtonEventSelect';
 import { TablePresencies}  from '../components/TablePresences';
 import { EventsEdit } from '../components/EditEventButton';
-import Card from "react-bootstrap/Card";
 import { useEffect } from 'react';
 import { EventsLoader } from '../actions/EventsDataLoaderButton';
 import { EventsUpdater } from '../actions/EventsMutationLoaderButton';
 import { ShowPresences } from '../components/ShowPresences';
 import { AddEvent } from '../components/AddEventButton';
+import { EventsCard } from '../components/EventsCard';
+import TestModal from '../components/TestModalButton';
 
 export const EventsPage = () => {
     const events = useSelector((state) => state.events);
   
     return (
-      <div className="container ">
+      <>
         <div className='container-fluid bg-info text-center'>
           <h1>Event Page</h1>
         </div>
         <div className='container text-center p-2'>
           <EventsLoader />
         </div>
-        <div>
-          <AddEvent />
+        <div className='container text-center p-2'>
+          <EventsUpdater />
         </div>
+        {/* <div className='container text-center p-2'>
+          <TestModal />
+        </div> */}
+        <EventsCard />
             { events.map((event)=> 
                     <table className ="table" key={event.id}>
                       <thead>
@@ -40,6 +45,9 @@ export const EventsPage = () => {
                         </tr>
                         <tr>
                           <td>End Date: {event.enddate}</td>
+                        </tr>
+                        <tr>
+                          <AddEvent />
                         </tr>
                         <tr>
                           <td>Presences:</td>
@@ -61,9 +69,7 @@ export const EventsPage = () => {
                       </tbody>
                     </table>
             )}
-        <div className='container text-center p-2'>
-          <EventsUpdater />
-        </div>
-      </div>
+        
+      </>
     );
   }

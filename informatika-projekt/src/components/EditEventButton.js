@@ -41,6 +41,7 @@ export const EventsEdit= (props) => {
             console.log("Last Change: ", evLastChange);
             await EventsMutation({id:evId, lastchange:evLastChange, newName:evName});
             console.log("Mutace propběla");
+            alert("Změna úspěšně proběhla");
         }
         catch (error) {
             console.error("Mutace error", error);
@@ -48,17 +49,31 @@ export const EventsEdit= (props) => {
     }
    
     return (
-        <div className="container p-2">
+        // <>
+        //     <a class="btn btn-primary" data-bs-toggle="modal" href="#editEventModal" role="button">Edit</a>
+        //     <div class="modal fade" id="editEventModal" aria-hidden="true" aria-labelledby="editEventModalLabel" tabindex="-1">
+        //       <div class="modal-dialog modal-dialog-centered">
+        //         <div class="modal-content">
+        //           <div class="modal-header">
+        //             <h5 class="modal-title" id="editEventModalLabel">Event Editation</h5>
+        //             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        //           </div>
+        //           <div class="modal-body">
+        //             Hide this modal and show the first with the button below.
+        //           </div>
+        //           <div class="modal-footer">
+        //             <button class="btn btn-primary" data-bs-target="#detailEventModal" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
+        //           </div>
+        //         </div>
+        //       </div>
+        //     </div>
+        // </>
 
-        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit Event</button>
-        <div className="modal modal fade" id="exampleModal" role='dialog'>
-            <div className="modal-dialog modal-lg modal-dialog-centered">
-                <div className="modal-content">
-                <div className="modal-header">
-                    <h1 className="modal-title fs-5" id="exampleModalLabel">Event Editation</h1>
-                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div className="modal-body">
+
+
+
+        <div className="cotent-container">
+                <div className="content-body">
                     <form>
                     <div className="mb-3">
                         <label className="col-form-label">ID:</label>
@@ -82,14 +97,9 @@ export const EventsEdit= (props) => {
                     </div>
                     </form>
                 </div>
-                <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <div className="content-footer">
                     <button type="button" className="btn btn-primary" onClick={handleAddEvent}>Save</button>
                 </div>
-                </div>
-            </div>
         </div>
-        
-      </div>
     )
   }

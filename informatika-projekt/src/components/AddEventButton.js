@@ -13,8 +13,8 @@ export const AddEvent = () => {
   
     return (
       <div className='container'>
-        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEventModal">Add Event</button>
-        <div className="modal modal fade" id="addEventModal" role='dialog'>
+        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEventModal" data-bs-dismiss="modal">Add Event</button>
+        <div className="modal fade" id="addEventModal" role='dialog' aria-hidden="true" tabIndex="-1">
             <div className="modal-dialog modal-lg modal-dialog-centered"></div>
             <div className="modal-content">
                 <div className="modal-header">
