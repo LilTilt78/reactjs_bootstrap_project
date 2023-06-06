@@ -34,7 +34,7 @@ export const EventsEdit= (props) => {
         setEvEndDate(e.target.value)
     }
 
-    const handleAddEvent = async () => {
+    const handleEditEvent = async () => {
         try{
             console.log("ID: ", evId);
             console.log("Name: ", evName);
@@ -98,7 +98,7 @@ export const EventsEdit= (props) => {
                     </form>
                 </div>
                 <div className="content-footer">
-                    <button type="button" className="btn btn-primary" onClick={handleAddEvent}>Save</button>
+                    <button type="button" className="btn btn-primary" onClick={handleEditEvent}>Save</button>
                 </div>
         </div>
     )

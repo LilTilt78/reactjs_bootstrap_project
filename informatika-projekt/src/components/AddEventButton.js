@@ -8,49 +8,81 @@ import { EventsLoader } from '../actions/EventsDataLoaderButton';
 import { EventsUpdater } from '../actions/EventsMutationLoaderButton';
 import { ShowPresences } from '../components/ShowPresences';
 import React, { useState } from "react";
+import { EventsInsert } from '../queries/EventsInsert';
 
 export const AddEvent = () => {
+
+    // const [evStartDate, setEvStartDate] = useState("");
+    // const [evEndDate, setEvEndDate] = useState("");
+
+    const [evTypeId, setEvTypeId] = useState("");
+    const [evName, setEvName] = useState("");
+
+
+    const evTypeIdChange= (e) =>{
+        setEvTypeId(e.target.value)
+    }
+
+    const evNameChange= (e) =>{
+        setEvName(e.target.value)
+    }
+
+
+    // const evStartDateChange= (e) =>{
+    //     setEvStartDate(e.target.value)
+    // }
+
+    // const evEndDateChange= (e) =>{
+    //     setEvEndDate(e.target.value)
+    // }
+
+    const handleAddEvent = async () => {
+        try{
+            await EventsInsert({eventTypeID:evTypeId, eventName:evName});
+            alert("Přidání úspěšně proběhlo");
+        }
+        catch (error) {
+            console.error("Adding error", error);
+        }
+    }
   
     return (
-      <div className='container'>
-        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEventModal" data-bs-dismiss="modal">Add Event</button>
-        <div className="modal fade" id="addEventModal" role='dialog' aria-hidden="true" tabIndex="-1">
-            <div className="modal-dialog modal-lg modal-dialog-centered"></div>
-            <div className="modal-content">
-                <div className="modal-header">
-                    <h1 className="modal-title fs-5" id="exampleModalLabel">Add Event</h1>
-                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div className="modal-body">
-                    <form>
+        <>
+        <a class="btn btn-primary" data-bs-toggle="modal" href="#addEventModal" role="button">Add Event</a>
+        <div class="modal fade" id="addEventModal" aria-hidden="true" aria-labelledby="addEventModalLabel" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="addEventModalLabel">Add Event</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form>
                     <div className="mb-3">
-                        <label className="col-form-label">ID:</label>
-                        <input type="text" className="form-control" id="evID" value={""} ></input>
+                        <label className="col-form-label">Type ID:</label>
+                        <input type="text" className="form-control" id="evTypeID" value={evTypeId} onChange={evTypeIdChange}></input>
                     </div>
                     <div className="mb-3">
                         <label className="col-form-label">Name:</label>
-                        <input type="text" className="form-control" id="evName" value={""} ></input>
-                    </div>
-                    <div className="mb-3">
-                        <label className="col-form-label">Last change:</label>
-                        <input type="text" className="form-control" id="evLastChange" value={""} ></input>
+                        <input type="text" className="form-control" id="evName" value={evName} onChange={evNameChange}></input>
                     </div>
                     <div className="mb-3">
                         <label className="col-form-label">Start date:</label>
-                        <input type="text" className="form-control" id="evStartDate" value={""} ></input>
+                        <input type="text" className="form-control" id="evStartDate" value={""}></input>
                     </div>
                     <div className="mb-3">
                         <label className="col-form-label">End date:</label>
-                        <input type="text" className="form-control" id="evEndDate" value={""} ></input>
+                        <input type="text" className="form-control" id="evEndDate" value={""}></input>
                     </div>
-                    </form>
-                </div>
-                <div className="modal-footer">
+                </form>
+              </div>
+              <div class="modal-footer">
                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" className="btn btn-primary" >Save</button>
-                </div>
-                </div>
+                    <button className="btn btn-primary" data-bs-dismiss="modal" onClick={handleAddEvent}>Save</button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+        </>
     );
   }
