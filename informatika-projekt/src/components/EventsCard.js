@@ -3,6 +3,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'jquery/dist/jquery.min.js';
 import { useSelector } from 'react-redux';
 import { EventDetail } from './EventDetailButton';
+import { AddEvent } from './AddEventButton';
 
 export const EventsCard= () => {
 
@@ -10,7 +11,7 @@ export const EventsCard= () => {
    
     return (
         <div className="card-container">
-            <div className='card-title'>Events Card</div>
+            <div className='card-title'><h4>Events Card</h4></div>
                 <div className='card-body'>
                     { events.map((event)=> 
                     <table className ="table" key={event.id}>
@@ -25,11 +26,13 @@ export const EventsCard= () => {
                             evLastChange={event.lastchange}
                             evStartDate={event.startdate}
                             evEndDate={event.enddate}
+                            presences={event.presences}
                           />
                         </tr>
                       </thead>
                     </table>
             )}
+            <AddEvent />
             </div>
         </div>
     )

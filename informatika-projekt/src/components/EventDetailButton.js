@@ -52,10 +52,12 @@ export const EventDetail= (props) => {
                   <div class="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button class="btn btn-primary" data-bs-target="#editEventModal" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button>
+                        <button class="btn btn-primary" data-bs-target="#presencesEventModal" data-bs-toggle="modal" data-bs-dismiss="modal">Show presences</button>
                   </div>
                 </div>
               </div>
             </div>
+
             <div class="modal fade" id="editEventModal" aria-hidden="true" aria-labelledby="editEventModalLabel" tabindex="-1">
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -71,6 +73,23 @@ export const EventDetail= (props) => {
                             evStartDate={props.evStartDate}
                             evEndDate={props.evEndDate}
                         />
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-target="#detailEventModal" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="presencesEventModal" aria-hidden="true" aria-labelledby="presencesEventModal" tabindex="-1">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="presencesEventModal">Event Editation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <TablePresencies presences={props.presences}/>
                   </div>
                   <div class="modal-footer">
                     <button class="btn btn-secondary" data-bs-target="#detailEventModal" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
