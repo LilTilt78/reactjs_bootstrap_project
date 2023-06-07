@@ -4,7 +4,7 @@ import { authorizedFetch } from './authorizedFetch';
  * Funkce, ktera id namapuje na json predstavujici "velky" (podrobny) dotaz na server
  * @returns 
  */
-export const EventsTypePageJSON = () => ({
+export const EventsTypeJSON = () => ({
     "query":
         `query{
             eventTypePage {
@@ -18,7 +18,7 @@ export const EventsTypePageJSON = () => ({
  * Realizace dotazu na server. Vyuziva autorizedFetch (zapouzdreni)
  * @returns 
  */
-export const EventsTypePageQuery = () =>
+export const EventsTypeQuery = () =>
 authorizedFetch('/gql', {
-        body: JSON.stringify(EventsTypePageJSON()),
+        body: JSON.stringify(EventsTypeJSON()),
     })

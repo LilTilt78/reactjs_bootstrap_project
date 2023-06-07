@@ -28,7 +28,7 @@ export const EventsPage = () => {
           <TestModal />
         </div> */}
         <EventsCard />
-            { events.map((event)=> 
+            {/* { events.map((event)=> 
                     <table className ="table" key={event.id}>
                       <thead>
                         <tr>
@@ -61,14 +61,14 @@ export const EventsPage = () => {
                         evEndDate={event.enddate}
                       />
                       <TablePresencies presences={event.presences} />
-                      {/* <ShowPresences presences={event.presences}/> */}
+                      <ShowPresences presences={event.presences}/>
                       <tbody>
                         <tr>
-                          {/* <td><TablePresencies presences={event.presences} /></td> */}
+                          <td><TablePresencies presences={event.presences} /></td>
                         </tr>
                       </tbody>
                     </table>
-            )}
+            )} */}
         
       </>
     );
