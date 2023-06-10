@@ -10,16 +10,25 @@ export const EventsCard= () => {
     const events = useSelector((state) => state.events);
    
     return (
-        <div className="card-container">
-            <div className='card-title'><h4>Events Card</h4></div>
+        <div className="card" style={{width: '1000px'}}>
+            <div className='card-header' style={{backgroundColor: '#9f3'}}><h4>Events Card</h4></div>
+              <table className='table'>
+                <thead>
+                  <tr>
+                    <td width="40%">Name:</td>
+                    <td width="30%">Start Date:</td>
+                    <td width="30%">End Date:</td>
+                  </tr>
+                </thead>
+              </table>
                 <div className='card-body'>
                     { events.map((event)=> 
                     <table className ="table" key={event.id}>
-                      <thead>
+                      <tbody>
                         <tr>
-                          <td>Name: {event.name}</td>
-                          <td>Start Date: {event.startdate}</td>
-                          <td>End Date: {event.enddate}</td>
+                          <td width="40%">{event.name}</td>
+                          <td width="30%">{event.startdate}</td>
+                          <td width="30%">{event.enddate}</td>
                           <EventDetail 
                             evId={event.id}
                             evName={event.name}
@@ -29,7 +38,7 @@ export const EventsCard= () => {
                             presences={event.presences}
                           />
                         </tr>
-                      </thead>
+                      </tbody>
                     </table>
             )}
             <AddEvent />

@@ -11,7 +11,6 @@ import { EventsCard } from '../components/EventsCard';
 import TestModal from '../components/TestModalButton';
 
 export const EventsPage = () => {
-    const events = useSelector((state) => state.events);
   
     return (
       <>
