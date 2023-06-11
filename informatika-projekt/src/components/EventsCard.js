@@ -1,14 +1,17 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'jquery/dist/jquery.min.js';
-import { useSelector } from 'react-redux';
 import { EventDetail } from './EventDetailButton';
 import { AddEvent } from './AddEventButton';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeDetail } from '../features/EventDisplaySlice';
+
 
 export const EventsCard= () => {
 
     const events = useSelector((state) => state.events);
-   
+
+
     return (
         <div className="card" style={{width: '1000px'}}>
             <div className='card-header' style={{backgroundColor: '#9f3'}}><h4>Events Card</h4></div>
@@ -30,12 +33,13 @@ export const EventsCard= () => {
                           <td width="30%">{event.startdate}</td>
                           <td width="30%">{event.enddate}</td>
                           <EventDetail 
-                            evId={event.id}
-                            evName={event.name}
-                            evLastChange={event.lastchange}
-                            evStartDate={event.startdate}
-                            evEndDate={event.enddate}
-                            presences={event.presences}
+                            eventDetail={event}
+                            // evId={event.id}
+                            // evName={event.name}
+                            // evLastChange={event.lastchange}
+                            // evStartDate={event.startdate}
+                            // evEndDate={event.enddate}
+                            // evPresences={event.presences}
                           />
                         </tr>
                       </tbody>

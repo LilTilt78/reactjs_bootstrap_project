@@ -7,7 +7,7 @@ export const TablePresencies = (props) => {
     return (
         <div className="cotent-container">
           <div className="content-body">
-            { props.presences.map((presence)=> 
+            { props.presences?.map((presence)=> 
                 <table className ="table table-presences" key={presence.id}>
                   <thead>
                     <tr>
