@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { EventsMutation } from '../queries/EventsMutation';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeEditDetail } from '../features/EventEditSlice';
+import { SaveEditedEvent } from './SaveEditedEventButton';
 
 export const EventsEdit= ( props ) => {
 
@@ -95,7 +96,8 @@ export const EventsEdit= ( props ) => {
                     </form>
                 </div>
                 <div className="content-footer">
-                    <button type="button" className="btn btn-primary" onClick={handleEditEvent}>Save</button>
+                    {/* <SaveEditedEvent id={evId} lastChange={evLastChange} newName={evName} startDate={evStartDate} endDate={evEndDate}/> */}
+                    <button className="btn btn-primary" data-bs-dismiss="modal" onClick={handleEditEvent}>Save</button>
                 </div>
             </div>
         </>
