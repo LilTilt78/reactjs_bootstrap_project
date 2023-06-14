@@ -91,7 +91,7 @@ export const EventDetail= ({ eventDetail }) => {
                     <EventsEdit 
                       evEditId={event.id}
                       evEditName={event.name}
-                      evEditTypeName={event.eventType? event.eventType.name : ""}
+                      evEditType={event.eventType}
                       evEditLastChange={event.lastchange}
                       evEditStartDate={event.startdate}
                       evEditEndDate={event.enddate}

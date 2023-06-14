@@ -1,7 +1,7 @@
 import { EventsMutation } from '../queries/EventsMutation';
 
 
-export const SaveEditedEvent = ({ evId, evLastChange, evName, evStartDate, evEndDate }) => {
+export const SaveEditedEvent = ({ evId, evLastChange, evName, evStartDate, evEndDate, evTypeId }) => {
 
     const handleEditEvent = async () => {
     try{
@@ -10,7 +10,8 @@ export const SaveEditedEvent = ({ evId, evLastChange, evName, evStartDate, evEnd
       console.log("LastChange: ", evLastChange);
       console.log("Start: ", evStartDate);
       console.log("End: ", evEndDate);
-      await EventsMutation({id:evId, lastchange:evLastChange, newName:evName, startDate:evStartDate, endDate:evEndDate});
+      console.log("Type: ", evTypeId);
+      await EventsMutation({id:evId, lastchange:evLastChange, newName:evName, startDate:evStartDate, endDate:evEndDate, typeId:evTypeId});
       console.log("Mutace propběla");
       alert("Změna úspěšně proběhla");
     }
