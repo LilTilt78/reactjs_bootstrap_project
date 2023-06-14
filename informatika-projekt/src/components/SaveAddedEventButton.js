@@ -19,6 +19,6 @@ export const SaveAddedEvent = ({ name, typeId, startDate, endDate }) => {
 }
 
   return (
-    <button className="btn btn-primary" data-bs-dismiss="modal" onClick={handleAddEvent}>Save</button>
+    <button className="btn btn-success" data-bs-dismiss="modal" onClick={handleAddEvent}>Save</button>
   )
 }

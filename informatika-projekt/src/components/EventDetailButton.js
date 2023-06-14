@@ -31,11 +31,11 @@ export const EventDetail= ({ eventDetail }) => {
       setEvStartDate(event.startdate);
       setEvEndDate(event.enddate);
     }
+    console.log("help",event.eventType);
 
-   
     return (
         <>
-        <a className="btn btn-primary" data-bs-toggle="modal" href="#detailEventModal" role="button" onClick={()=>{dispatch(changeDetail(eventDetail))}}>Detail</a>
+        <a className="btn btn-dark" data-bs-toggle="modal" href="#detailEventModal" role="button" onClick={()=>{dispatch(changeDetail(eventDetail))}}>Detail</a>
             <div className="modal fade" id="detailEventModal" aria-hidden="true" aria-labelledby="detailEventModalLabel" tabIndex="-1">
               <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
@@ -54,6 +54,10 @@ export const EventDetail= ({ eventDetail }) => {
                             <input type="text" className="form-control" id="evName" value={event.name}></input>
                         </div>
                         <div className="mb-3">
+                            <label className="col-form-label">Type:</label>
+                            <input type="text" className="form-control" id="evTypeName" value={event.eventType? event.eventType.name : ""}></input>
+                        </div>
+                        <div className="mb-3">
                             <label className="col-form-label">Last change:</label>
                             <input type="text" className="form-control" id="evLastChange" value={event.lastchange}></input>
                         </div>
@@ -69,8 +73,8 @@ export const EventDetail= ({ eventDetail }) => {
                   </div>
                   <div class="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button className="btn btn-primary" data-bs-target="#editEventModal" data-bs-toggle="modal" data-bs-dismiss="modal" onClick={setValues}>Edit</button>
-                        <button className="btn btn-primary" data-bs-target="#presencesEventModal" data-bs-toggle="modal" data-bs-dismiss="modal">Show presences</button>
+                        <button className="btn btn-warning" data-bs-target="#editEventModal" data-bs-toggle="modal" data-bs-dismiss="modal" onClick={setValues}>Edit</button>
+                        <button className="btn btn-dark" data-bs-target="#presencesEventModal" data-bs-toggle="modal" data-bs-dismiss="modal">Show presences</button>
                   </div>
                 </div>
               </div>
@@ -87,6 +91,7 @@ export const EventDetail= ({ eventDetail }) => {
                     <EventsEdit 
                       evEditId={event.id}
                       evEditName={event.name}
+                      evEditTypeName={event.eventType? event.eventType.name : ""}
                       evEditLastChange={event.lastchange}
                       evEditStartDate={event.startdate}
                       evEditEndDate={event.enddate}

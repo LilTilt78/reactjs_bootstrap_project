@@ -12,6 +12,7 @@ export const EventsEdit= ( props ) => {
 
     const [evId, setEvId] = useState("");
     const [evName, setEvName] = useState("");
+    //const [evType, setEvType] = useState("");
     const [evLastChange, setEvLastChange] = useState("");
     const [evStartDate, setEvStartDate] = useState("");
     const [evEndDate, setEvEndDate] = useState("");
@@ -31,6 +32,14 @@ export const EventsEdit= ( props ) => {
         evStartDate?setEvStartDate(evStartDate):setEvStartDate(props.evEditStartDate);
         evEndDate?setEvEndDate(evEndDate):setEvEndDate(props.evEditEndDate);
     }
+
+    // const evTypeChange= (e) =>{
+    //     setEvType(e.target.value);
+    //     setEvId(props.evEditId);
+    //     setEvLastChange(props.evEditLastChange);
+    //     evStartDate?setEvStartDate(evStartDate):setEvStartDate(props.evEditStartDate);
+    //     evEndDate?setEvEndDate(evEndDate):setEvEndDate(props.evEditEndDate);
+    // }
 
     // const evLastChangeChange= (e) =>{
     //     setEvLastChange(e.target.value)
@@ -52,21 +61,21 @@ export const EventsEdit= ( props ) => {
         evStartDate?setEvStartDate(evStartDate):setEvStartDate(props.evEditStartDate);
     }
 
-    const handleEditEvent = async () => {
-        try{
-            console.log("ID: ", evId);
-            console.log("Name: ", evName);
-            console.log("LastChange: ", evLastChange);
-            console.log("Start: ", evStartDate);
-            console.log("End: ", evEndDate);
-            await EventsMutation({id:evId, lastchange:evLastChange, newName:evName, startDate:evStartDate, endDate:evEndDate});
-            console.log("Mutace propběla");
-            alert("Změna úspěšně proběhla");
-        }
-        catch (error) {
-            console.error("Mutace error", error);
-        }
-    }
+    // const handleEditEvent = async () => {
+    //     try{
+    //         console.log("ID: ", evId);
+    //         console.log("Name: ", evName);
+    //         console.log("LastChange: ", evLastChange);
+    //         console.log("Start: ", evStartDate);
+    //         console.log("End: ", evEndDate);
+    //         await EventsMutation({id:evId, lastchange:evLastChange, newName:evName, startDate:evStartDate, endDate:evEndDate});
+    //         console.log("Mutace propběla");
+    //         alert("Změna úspěšně proběhla");
+    //     }
+    //     catch (error) {
+    //         console.error("Mutace error", error);
+    //     }
+    // }
    
     return (
         <>
@@ -80,6 +89,10 @@ export const EventsEdit= ( props ) => {
                     <div className="mb-3">
                         <label className="col-form-label">Name:</label>
                         <input type="text" className="form-control" id="evName" value={evName?evName:props.evEditName} onChange={evNameChange}></input>
+                    </div>
+                    <div className="mb-3">
+                        <label className="col-form-label">Type:</label>
+                        <input type="text" className="form-control" id="evTypeName" value={props.evEditTypeName}></input>
                     </div>
                     <div className="mb-3">
                         <label className="col-form-label">Last change:</label>
@@ -96,10 +109,10 @@ export const EventsEdit= ( props ) => {
                     </form>
                 </div>
                 <div className="content-footer">
-                    {/* <SaveEditedEvent id={evId} lastChange={evLastChange} newName={evName} startDate={evStartDate} endDate={evEndDate}/> */}
-                    <button className="btn btn-primary" data-bs-dismiss="modal" onClick={handleEditEvent}>Save</button>
+                    <SaveEditedEvent evId={evId} evLastChange={evLastChange} evName={evName} evStartDate={evStartDate} evEndDate={evEndDate}/>
+                    {/* <button className="btn btn-primary" data-bs-dismiss="modal" onClick={handleEditEvent}>Save</button> */}
                 </div>
             </div>
         </>
     )
-  }
+}

@@ -14,15 +14,15 @@ export const EventsPage = () => {
   
     return (
       <>
-        <div className='container-fluid bg-info text-center'>
+        <div className='container-fluid bg-dark text-light text-center'>
           <h1>Event Page</h1>
         </div>
         <div className='container text-center p-2'>
           <EventsLoader />
         </div>
-        <div className='container text-center p-2'>
+        {/* <div className='container text-center p-2'>
           <EventsUpdater />
-        </div>
+        </div> */}
         {/* <div className='container text-center p-2'>
           <TestModal />
         </div> */}

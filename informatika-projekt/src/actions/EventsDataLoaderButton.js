@@ -23,7 +23,7 @@ export const EventsLoader= () => {
  
   return (
     <div>
-      <button className='btn btn-info' onClick={fetchData} disabled={dataLoaded}>{dataLoaded ? 'Data Loaded' : 'Load Data'}</button>
+      <button className='btn' style={{backgroundColor: '#9f3'}} onClick={fetchData} disabled={dataLoaded}>{dataLoaded ? 'Data Loaded' : 'Load Data'}</button>
     </div>
   )
 }

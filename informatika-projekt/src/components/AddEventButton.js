@@ -18,7 +18,7 @@ import { EventTypeDef } from './EventTypeButton';
 export const AddEvent = () => {
 
     const dispatch = useDispatch()  
-     const eventsType = useSelector((state) => state.eventsType);
+    const eventsType = useSelector((state) => state.eventsType);
 
     const [evStartDate, setEvStartDate] = useState("2023-05-24T10:00");
     const [evEndDate, setEvEndDate] = useState("2023-05-24T11:00");
@@ -42,7 +42,7 @@ export const AddEvent = () => {
   
     return (
       <>
-        <a className="btn btn-primary" data-bs-toggle="modal" href="#addEventModal" role="button" onClick={() => {dispatch(EventsTypeFetchAsync())}}>Add Event</a>
+        <a className="btn" style={{backgroundColor: '#9f3'}} data-bs-toggle="modal" href="#addEventModal" role="button" onClick={() => {dispatch(EventsTypeFetchAsync())}}>Add Event</a>
         <div className="modal fade" id="addEventModal" aria-hidden="true" aria-labelledby="addEventModalLabel" tabIndex="-1">
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">

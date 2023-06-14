@@ -10,6 +10,10 @@ export const EventsQueryJSON = () => ({
           eventPage {
             id
             name
+            eventType{
+              id
+              name
+              }
             lastchange
             startdate
             enddate
