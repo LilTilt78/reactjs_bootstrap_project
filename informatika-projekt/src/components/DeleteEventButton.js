@@ -1,12 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 //import { EventSelect } from '../components/ButtonEventSelect';
-import { TablePresencies}  from '../components/TablePresences';
 import { EventsEdit } from '../components/EditEventButton';
 import Card from "react-bootstrap/Card";
 import { useEffect } from 'react';
 import { EventsLoader } from '../actions/EventsDataLoaderButton';
 import { EventsUpdater } from '../actions/EventsMutationLoaderButton';
-import { ShowPresences } from '../components/ShowPresences';
+import { ShowPresences2 } from '../components/ShowPresences';
 import React, { useState } from "react";
 
 

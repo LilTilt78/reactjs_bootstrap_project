@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { EditPresences } from './EditPresencesButton';
 
-export const TablePresencies = (props) => {
+export const ShowPresences = (props) => {
 
   
     return (
@@ -16,16 +16,16 @@ export const TablePresencies = (props) => {
                   </thead>
                   <tbody>
                     <tr>
-                            <td><span>Presence Type ID:</span> {presence.presenceType.id} </td>
-                            <td><span>Presence Type Name:</span> {presence.presenceType.name} </td>
+                            {/* <td><span>Presence Type ID:</span> {presence.presenceType.id} </td> */}
+                            <td><span>User Email:</span> {presence.user.email} </td>
                     </tr>
                     <tr>
-                          <td><span>Invitation Type ID:</span> {presence.invitationType.id} </td>
-                          <td><span>Invitation Type Name:</span> {presence.invitationType.name} </td>
+                          {/* <td><span>Invitation Type ID:</span> {presence.invitationType.id} </td> */}
+                          <td><span>Invitation:</span> {presence.invitationType.name} </td>
                     </tr>
                     <tr>
-                          <td><span>User ID:</span> {presence.user.id} </td>
-                          <td><span>User Email:</span> {presence.user.email} </td>
+                          {/* <td><span>User ID:</span> {presence.user.id} </td> */}
+                          <td><span>Presence:</span> {presence.presenceType.name} </td>
                     </tr>
                   </tbody>
                 </table>

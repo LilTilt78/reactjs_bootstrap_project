@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'jquery/dist/jquery.min.js';
 import React, { useState } from "react";
-import { TablePresencies}  from '../components/TablePresences';
+import { ShowPresences}  from './PresencesTable';
 import { EventsEdit } from '../components/EditEventButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeDetail } from '../features/EventDisplaySlice';
@@ -112,7 +112,7 @@ export const EventDetail= ({ eventDetail }) => {
                     <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div className="modal-body">
-                    <TablePresencies presences={event.presences}/>
+                    <ShowPresences presences={event.presences}/>
                   </div>
                   <div className="modal-footer">
                     <button className="btn btn-secondary" data-bs-target="#detailEventModal" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>

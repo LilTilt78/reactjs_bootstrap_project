@@ -1,12 +1,10 @@
 import { useSelector } from 'react-redux';
 //import { EventSelect } from '../components/ButtonEventSelect';
-import { TablePresencies}  from '../components/TablePresences';
 import { EventsEdit } from '../components/EditEventButton';
 import Card from "react-bootstrap/Card";
 import { useEffect } from 'react';
 import { EventsLoader } from '../actions/EventsDataLoaderButton';
 import { EventsUpdater } from '../actions/EventsMutationLoaderButton';
-import { ShowPresences } from '../components/ShowPresences';
 import React, { useState } from "react";
 import { EventsInsert } from '../queries/EventsInsert';
 import { EventsTypeQuery } from '../queries/EventsTypePageQuery';
@@ -14,6 +12,7 @@ import { useDispatch } from 'react-redux';
 import { EventsTypeFetchAsync } from '../actions/FetchEventsType';
 import { SaveAddedEvent } from './SaveAddedEventButton';
 import { EventTypeDef } from './EventTypeButton';
+import { EventNameInput } from './EventNameInputBox';
 
 export const AddEvent = () => {
 
@@ -39,6 +38,10 @@ export const AddEvent = () => {
         setEvEndDate(e.target.value)
     }
 
+    const nameRecieve = (evName) => {
+      setEvName(evName);
+    }
+
   
     return (
       <>
@@ -53,14 +56,15 @@ export const AddEvent = () => {
               <div className="modal-body">
                 <div className='container'>
                   <div className="mb-3">
-                          <label className="col-form-label">Name:</label>
-                          <input type="text" className="form-control" id="evName" value={evName} onChange={(e) => {setEvName(e.target.value)}}></input>
+                    <EventNameInput nameRecieve={nameRecieve}/>
+                    {/* <label className="col-form-label">Name:</label>
+                    <input type="text" className="form-control" id="evName" value={evName} onChange={(e) => {setEvName(e.target.value)}}></input> */}
                   </div>
                   <label className="col-form-label">Choose Event Type:</label>
                   {/* <EventTypeDef /> */}
-                  <select className='form-select' aria-label='Default select example' onChange={evTypeIdChange} >
+                  <select className='form-select' aria-label='Default select example' onChange={evTypeIdChange}>
                     { eventsType.map((eventType)=> 
-                        <option key={eventType.id} value={eventType.id}>{eventType.name}</option>
+                      <option key={eventType.id} value={eventType.id}>{eventType.name}</option>
                     )}
                   </select>
                   <div className="mb-3">
