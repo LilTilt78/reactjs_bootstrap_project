@@ -14,13 +14,13 @@ export const EventsCard= () => {
 
     return (
         <div className="card" style={{width: '1000px'}}>
-            <div className='card-header' style={{backgroundColor: '#9f3'}}><h4>Events Card</h4></div>
+            <div className='card-header bg-dark text-light'><h4>Events Card</h4></div>
               <table className='table'>
                 <thead>
                   <tr>
-                    <td width="40%">Name:</td>
-                    <td width="30%">Start Date:</td>
-                    <td width="30%">End Date:</td>
+                    <td width="40%" style={{backgroundColor: '#9f3'}}>Name:</td>
+                    <td width="30%" style={{backgroundColor: '#9f3'}}>Start Date:</td>
+                    <td width="30%" style={{backgroundColor: '#9f3'}}>End Date:</td>
                   </tr>
                 </thead>
               </table>
@@ -32,15 +32,7 @@ export const EventsCard= () => {
                           <td width="40%">{event.name}</td>
                           <td width="30%">{event.startdate}</td>
                           <td width="30%">{event.enddate}</td>
-                          <EventDetail 
-                            eventDetail={event}
-                            // evId={event.id}
-                            // evName={event.name}
-                            // evLastChange={event.lastchange}
-                            // evStartDate={event.startdate}
-                            // evEndDate={event.enddate}
-                            // evPresences={event.presences}
-                          />
+                          <EventDetail eventDetail={event}/>
                         </tr>
                       </tbody>
                     </table>
