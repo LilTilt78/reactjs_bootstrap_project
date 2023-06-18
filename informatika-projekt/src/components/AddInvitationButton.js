@@ -73,11 +73,7 @@ export const AddInvitation = () => {
               </div>
               <div class="modal-footer">
                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-<<<<<<< HEAD
                     <SaveAddedInvitation evName={evName} userName={userName} groupName={groupName}/>
-=======
-                    <SaveAddedInvitation name={evName}/>
->>>>>>> 3560b3ea82126422690650ce62140e136c1ccbe7
               </div>
             </div>
           </div>
