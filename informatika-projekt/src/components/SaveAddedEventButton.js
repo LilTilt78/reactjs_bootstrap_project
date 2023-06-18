@@ -17,7 +17,6 @@ export const SaveAddedEvent = ({ name, typeId, startDate, endDate }) => {
         console.error("Adding error", error);
     }
 }
-
   return (
     <button className="btn btn-success" data-bs-dismiss="modal" onClick={handleAddEvent}>Save</button>
   )
