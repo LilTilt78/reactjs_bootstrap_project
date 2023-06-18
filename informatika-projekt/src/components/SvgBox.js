@@ -16,7 +16,7 @@ export const SvgBox = () => {
         <div className='container-fluid bg-dark text-light' style={{width: '1000px'}}>
           <h3>Events in SVG field</h3>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500">
             {events.map((event, index) => {
             const row = Math.floor(index / boxesPerRow); // Calculate the row index
             const x = xVal + (index % boxesPerRow) * 250; // Calculate the x position

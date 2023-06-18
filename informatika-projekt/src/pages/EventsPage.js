@@ -1,13 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux';
-//import { EventSelect } from '../components/ButtonEventSelect';
-import { EventsEdit } from '../components/EditEventButton';
-import { useEffect } from 'react';
 import { EventsLoader } from '../actions/EventsDataLoaderButton';
-import { EventsUpdater } from '../actions/EventsMutationLoaderButton';
-import { AddEvent } from '../components/AddEventButton';
 import { EventsCard } from '../components/EventsCard';
-import TestModal from '../components/TestModalButton';
 import { SvgBox } from '../components/SvgBox';
+import { InvitationsCard } from '../components/InvitationsCard';
 
 export const EventsPage = () => {
   
@@ -23,6 +17,9 @@ export const EventsPage = () => {
           <EventsCard />
         </div>
           <SvgBox />
+        <div className='container my-5 d-flex align-items-center justify-content-center'>
+          <InvitationsCard />
+        </div>
       </>
     );
 }
