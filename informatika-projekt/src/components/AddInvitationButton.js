@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { GroupsFetchAsync } from '../actions/FetchGroups';
 import { UsersFetchAsync } from '../actions/FetchUsers';
+import { SaveAddedInvitation } from './SaveAddedInvitationButton';
 
 export const AddInvitation = () => {
  
@@ -72,7 +73,7 @@ export const AddInvitation = () => {
               </div>
               <div class="modal-footer">
                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    {/* <SaveAddedInvitation name={invName}/> */}
+                    <SaveAddedInvitation name={evName}/>
               </div>
             </div>
           </div>
