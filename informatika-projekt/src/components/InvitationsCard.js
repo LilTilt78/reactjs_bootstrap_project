@@ -2,10 +2,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'jquery/dist/jquery.min.js';
 import { EventDetail } from './EventDetailButton';
-import { AddEvent } from './AddEventButton';
 import { useDispatch, useSelector } from 'react-redux';
-import { AddInvitation } from './AddInvitationButton';
-
+import { AddGroupInvitation } from './GroupInvitationButton';
+import { AddUserInvitation } from './UserInvitationButton';
 
 export const InvitationsCard= () => {
 
@@ -19,7 +18,7 @@ export const InvitationsCard= () => {
                 <thead>
                   <tr>
                     <td width="40%" style={{backgroundColor: '#9f3'}}>Name:</td>
-                    <td width="30%" style={{backgroundColor: '#9f3'}}>Event:</td>
+                    <td width="30%" style={{backgroundColor: '#9f3'}}>Invitation:</td>
                     <td width="30%" style={{backgroundColor: '#9f3'}}>Presence:</td>
                   </tr>
                 </thead>
@@ -29,15 +28,17 @@ export const InvitationsCard= () => {
                     <table className ="table" key={event.id}>
                       <tbody>
                         <tr>
-                          <td width="40%">{event.name}</td>
-                          <td width="30%">{event.startdate}</td>
-                          <td width="30%">{event.enddate}</td>
-                          <EventDetail eventDetail={event}/>
+                          <td width="40%">{event.presence.user.email}</td>
+                          <td width="30%">{event.presence.invitationType.name}</td>
+                          <td width="30%">{event.presence.presenceType.name}</td>
                         </tr>
                       </tbody>
                     </table>
             )}
-            <AddInvitation />
+              <div className='container'  style={{ display: 'flex', gap: '10px' }}>
+                <AddUserInvitation />
+                <AddGroupInvitation />
+              </div>
             </div>
         </div>
     )

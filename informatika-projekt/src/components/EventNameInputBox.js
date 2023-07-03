@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-export const EventNameInput = ({nameRecieve}) => {
+export const EventNameInput = ({OnNameRecieve}) => {
 
     const [evName, setEvName] = useState("");
 
     const evNameChange = (e) =>{
         setEvName(e.target.value)
-        nameRecieve(e.target.value)
+        OnNameRecieve(e.target.value)
     }
 
     return (

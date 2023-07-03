@@ -30,11 +30,11 @@ export const AddEvent = () => {
         setEvEndDate(e.target.value)
     }
 
-    const nameRecieve = (evName) => {
+    const OnNameRecieve = (evName) => {
       setEvName(evName);
     }
 
-    const typeRecieve = (evType) => {
+    const OnTypeRecieve = (evType) => {
       setEvTypeId(evType);
     }
 
@@ -52,12 +52,12 @@ export const AddEvent = () => {
               <div className="modal-body">
                 <div className='container'>
                   <div className="mb-3">
-                    <EventNameInput nameRecieve={nameRecieve}/>
+                    <EventNameInput OnNameRecieve={OnNameRecieve}/>
                     {/* <label className="col-form-label">Name:</label>
                     <input type="text" className="form-control" id="evName" value={evName} onChange={(e) => {setEvName(e.target.value)}}></input> */}
                   </div>
                   <label className="col-form-label">Choose Event Type:</label>
-                  <EventTypeSelect typeRecieve={typeRecieve}/>
+                  <EventTypeSelect OnTypeRecieve={OnTypeRecieve}/>
                   {/* <select className='form-select' aria-label='Default select example' onChange={evTypeIdChange}>
                     { eventsType.map((eventType)=> 
                       <option key={eventType.id} value={eventType.id}>{eventType.name}</option>

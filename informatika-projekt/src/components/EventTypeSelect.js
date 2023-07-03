@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
-export const EventTypeSelect = ({typeRecieve}) => {
+
+export const EventTypeSelect = ({OnTypeRecieve}) => {
 
     const eventsType = useSelector((state) => state.eventsType);
 
@@ -9,7 +10,7 @@ export const EventTypeSelect = ({typeRecieve}) => {
 
     const evTypeIdChange= (e) =>{
         setEvTypeId(e.target.value)
-        typeRecieve(e.target.value)
+        OnTypeRecieve(e.target.value)
     }
 
     return (
