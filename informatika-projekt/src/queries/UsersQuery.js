@@ -8,6 +8,7 @@ export const UsersQueryJSON = () => ({
               id
               name
               surname
+              email
           }
           }`,
 })

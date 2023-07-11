@@ -10,22 +10,22 @@ export const AddUserInvitation = () => {
     const events = useSelector((state) => state.events);
     const users = useSelector((state) => state.users);
 
-    const [evName, setEvName] = useState("");
-    const [userName, setUserName] = useState("");
+    const [eventId, setEvId] = useState("");
+    const [userId, setUserId] = useState("");
 
-    const evNameChange = (e) =>{
-        setEvName(e.target.value);
-        console.log("EvName: ", evName);
+    const evIdChange = (e) =>{
+        setEvId(e.target.value);
+        console.log("EventId: ", eventId);
     }
 
-    const userNameChange = (e) =>{
-        setUserName(e.target.value);
-        console.log("UserName: ", userName);
+    const userIdChange = (e) =>{
+        setUserId(e.target.value);
+        console.log("UserId: ", userId);
     }
 
     return (
       <>
-        <a className="btn" style={{backgroundColor: '#9f3'}} data-bs-toggle="modal" href="#addUserInvitationModal" role="button" onClick={() => {dispatch(UsersFetchAsync())}}>Invite User</a>
+        <a className="btn" style={{backgroundColor: '#9f3'}} data-bs-toggle="modal" href="#addUserInvitationModal" role="button">Invite User</a>
         <div className="modal fade" id="addUserInvitationModal" aria-hidden="true" aria-labelledby="addInvitationModalLabel" tabIndex="-1">
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
@@ -36,7 +36,7 @@ export const AddUserInvitation = () => {
               <div className="modal-body">
                 <div className='container'>
                   <label className="col-form-label">Event:</label>
-                  <select className='form-select' aria-label='Default select example' onChange={evNameChange}>
+                  <select className='form-select' aria-label='Default select example' onChange={evIdChange}>
                     <option disabled selected>Choose event</option>
                     { events.map((event)=> 
                       <option key={event.id} value={event.id}>{event.name}</option>
@@ -45,7 +45,7 @@ export const AddUserInvitation = () => {
                 </div>
                 <div className='container'>
                   <label className="col-form-label">Users:</label>
-                  <select className='form-select' aria-label='Default select example' onChange={userNameChange}>
+                  <select className='form-select' aria-label='Default select example' onChange={userIdChange}>
                   <option disabled selected>Choose user/users</option>
                     { users.map((user)=> 
                       <option key={user.id} value={user.id}>{user.name} {user.surname}</option>
@@ -55,7 +55,7 @@ export const AddUserInvitation = () => {
               </div>
               <div class="modal-footer">
                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <SaveAddedInvitation evName={evName} userName={userName} />
+                    <SaveAddedInvitation  eventId={eventId} userId={userId}/>
               </div>
             </div>
           </div>

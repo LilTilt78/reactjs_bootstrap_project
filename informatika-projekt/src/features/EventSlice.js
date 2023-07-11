@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 // A Redux slice for managing the state of the projects
 export const eventSlice = createSlice({
@@ -23,11 +23,22 @@ export const eventSlice = createSlice({
           state = state.map(data => data.id === updateData.id ? {...data, ...updateData} : data)
           return state
       },
+      
+      addPresence: (state, action) => {
+        const newPresence = action.payload
+          state.push(newPresence)
+          return state
+        // const updateData = action.payload
+        // const event =  current(state).find(event => event.id === updateData.event.id)
+        // const newEvent =  { ...event, presences: updateData.event.presences }
+        // state = current(state).map(event => event.id === newEvent.id ? newEvent  : event)
+        // return state
+        },
   },
 })
 
 // Export the addProject action creator from the projectsSlice
-export const { loadData, addData, updateData } = eventSlice.actions
+export const { loadData, addData, updateData, addPresence } = eventSlice.actions
 
 // Export the projectsSlice reducer
 export default eventSlice.reducer

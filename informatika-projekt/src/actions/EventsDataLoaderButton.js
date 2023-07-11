@@ -3,6 +3,8 @@ import  { EventsQuery }  from '../queries/EventsQuery';
 import { useDispatch } from 'react-redux';
 import { loadData } from '../features/EventSlice';
 import { useState } from 'react';
+import { UsersFetchAsync } from './FetchUsers';
+import { GroupsFetchAsync } from './FetchGroups';
 
 export const EventsLoader= () => {
 
@@ -16,8 +18,10 @@ export const EventsLoader= () => {
         console.log(data.data.eventPage);
         dispatch(loadData(data.data.eventPage));
         setDataLoaded(true);
+        dispatch(UsersFetchAsync())
+        dispatch(GroupsFetchAsync())
       } catch (error) {
-        console.error('Error fetching group names:', error);
+        console.error('Error fetching data:', error);
       }
     };
  

@@ -26,7 +26,7 @@ export const AddGroupInvitation = () => {
 
     return (
       <>
-        <a className="btn" style={{backgroundColor: '#9f3'}} data-bs-toggle="modal" href="#addGroupInvitationModal" role="button" onClick={() => {dispatch(GroupsFetchAsync())}}>Invite Group</a>
+        <a className="btn" style={{backgroundColor: '#9f3'}} data-bs-toggle="modal" href="#addGroupInvitationModal" role="button">Invite Group</a>
         <div className="modal fade" id="addGroupInvitationModal" aria-hidden="true" aria-labelledby="addGroupInvitationModalLabel" tabIndex="-1">
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
