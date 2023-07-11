@@ -18,7 +18,8 @@ export const EventsCard= () => {
               <table className='table'>
                 <thead>
                   <tr>
-                    <td width="40%" style={{backgroundColor: '#9f3'}}>Name:</td>
+                    <td width="20%" style={{backgroundColor: '#9f3'}}>Name:</td>
+                    <td width="20%" style={{backgroundColor: '#9f3'}}>Type:</td>
                     <td width="30%" style={{backgroundColor: '#9f3'}}>Start Date:</td>
                     <td width="30%" style={{backgroundColor: '#9f3'}}>End Date:</td>
                   </tr>
@@ -29,7 +30,8 @@ export const EventsCard= () => {
                     <table className ="table" key={event.id}>
                       <tbody>
                         <tr>
-                          <td width="40%">{event.name}</td>
+                          <td width="20%">{event.name}</td>
+                          <td width="20%">{event.eventType? event.eventType.name : ""}</td>
                           <td width="30%">{event.startdate}</td>
                           <td width="30%">{event.enddate}</td>
                           <EventDetail eventDetail={event}/>

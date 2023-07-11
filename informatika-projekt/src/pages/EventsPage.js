@@ -2,6 +2,7 @@ import { EventsLoader } from '../actions/EventsDataLoaderButton';
 import { EventsCard } from '../components/EventsCard';
 import { SvgBox } from '../components/SvgBox';
 import { InvitationsCard } from '../components/InvitationsCard';
+import { SvgSetOfEvents } from '../components/SvgSetOfEvents';
 
 export const EventsPage = () => {
   
@@ -17,6 +18,7 @@ export const EventsPage = () => {
           <EventsCard />
         </div>
           <SvgBox />
+          <SvgSetOfEvents />
         <div className='container my-5 d-flex align-items-center justify-content-center'>
           <InvitationsCard />
         </div>
