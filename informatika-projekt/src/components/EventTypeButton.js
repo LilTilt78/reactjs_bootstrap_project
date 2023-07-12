@@ -10,7 +10,7 @@ export const EventTypeDef = () => {
 
     const evTypeIdChange= (e) =>{
         setEvTypeId(e.target.value)
-        console.log("ID: ", evTypeId)
+        // console.log("ID: ", evTypeId)
     }
 
     return (

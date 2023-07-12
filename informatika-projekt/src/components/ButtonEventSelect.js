@@ -12,11 +12,11 @@ export const EventSelect= () => {
       try {
         const response = await EventsQuery();
         const data = await response.json();
-        console.log(data.data.eventPage);
+        // console.log(data.data.eventPage);
         dispatch(loadData(data.data.eventPage));
         setDataLoaded(true);
       } catch (error) {
-        console.error('Error fetching group names:', error);
+        // console.error('Error fetching group names:', error);
       }
     };
  

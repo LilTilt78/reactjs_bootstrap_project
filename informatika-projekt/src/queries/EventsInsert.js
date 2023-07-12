@@ -18,6 +18,10 @@ const EventsInsertJSON = (eventName, eventTypeID, startDate, endDate) => ({
                         lastchange
                         startdate
                         enddate
+                        eventType {
+                          id
+                          name
+                        }
                         presences {
                           id
                           presenceType {

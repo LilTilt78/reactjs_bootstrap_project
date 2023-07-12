@@ -16,7 +16,7 @@ export const EventDetail= ({ eventDetail }) => {
   const dispatch = useDispatch()
 
 
-  console.log("event: ", event);
+  // console.log("event: ", event);
 
   const [evId, setEvId] = useState("");
   const [evName, setEvName] = useState("");
@@ -31,7 +31,7 @@ export const EventDetail= ({ eventDetail }) => {
       setEvStartDate(event.startdate);
       setEvEndDate(event.enddate);
     }
-    console.log("help",event.eventType);
+    // console.log("help",event.eventType);
 
     return (
         <>

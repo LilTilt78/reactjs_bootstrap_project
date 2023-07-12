@@ -25,14 +25,12 @@ export const eventSlice = createSlice({
       },
       
       addPresence: (state, action) => {
-        const newPresence = action.payload
-          state.push(newPresence)
-          return state
-        // const updateData = action.payload
-        // const event =  current(state).find(event => event.id === updateData.event.id)
-        // const newEvent =  { ...event, presences: updateData.event.presences }
-        // state = current(state).map(event => event.id === newEvent.id ? newEvent  : event)
-        // return state
+        const updateData = action.payload
+        console.log(updateData)
+        const event =  current(state).find(event => event.id === updateData.event.id)
+        const newEvent =  { ...event, presences: updateData.event.presences }
+        state = current(state).map(event => event.id === newEvent.id ? newEvent  : event)
+        return state
         },
   },
 })

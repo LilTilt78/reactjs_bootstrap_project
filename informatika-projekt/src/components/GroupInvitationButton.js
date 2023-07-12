@@ -1,8 +1,7 @@
 import { useSelector } from 'react-redux';
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
-import { GroupsFetchAsync } from '../actions/FetchGroups';
-import { SaveAddedInvitation } from './SaveAddedInvitationButton';
+import { SaveAddedInvitation2 } from './SaveAddedInvitation2Button';
 
 export const AddGroupInvitation = () => {
  
@@ -10,19 +9,16 @@ export const AddGroupInvitation = () => {
     const events = useSelector((state) => state.events);
     const groups = useSelector((state) => state.groups);
 
-    const [evName, setEvName] = useState("");
-    const [groupName, setGroupName] = useState("");
+    const [eventId, setEvId] = useState("");
+    const [groupId, setGroupId] = useState("");
 
-    const evNameChange = (e) =>{
-        setEvName(e.target.value);
-        console.log("EvName: ", evName);
+    const evIdChange = (e) =>{
+        setEvId(e.target.value);
     }
 
-    const groupNameChange = (e) =>{
-        setGroupName(e.target.value);
-        console.log("GroupName: ", groupName);
+    const groupIdChange = (e) =>{
+        setGroupId(e.target.value);
     }
-
 
     return (
       <>
@@ -37,7 +33,7 @@ export const AddGroupInvitation = () => {
               <div className="modal-body">
                 <div className='container'>
                   <label className="col-form-label">Event:</label>
-                  <select className='form-select' aria-label='Default select example' onChange={evNameChange}>
+                  <select className='form-select' aria-label='Default select example' onChange={evIdChange}>
                     <option disabled selected>Choose event</option>
                     { events.map((event)=> 
                       <option key={event.id} value={event.id}>{event.name}</option>
@@ -46,7 +42,7 @@ export const AddGroupInvitation = () => {
                 </div>
                 <div className='container'>
                   <label className="col-form-label">Groups:</label>
-                  <select className='form-select' aria-label='Default select example' onChange={groupNameChange}>
+                  <select className='form-select' aria-label='Default select example' onChange={groupIdChange}>
                   <option disabled selected>Choose group/groups</option>
                     { groups?.map((group)=> 
                       <option key={group.id} value={group.id}>{group.name}</option>
@@ -56,7 +52,7 @@ export const AddGroupInvitation = () => {
               </div>
               <div class="modal-footer">
                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <SaveAddedInvitation evName={evName} groupName={groupName}/>
+                    <SaveAddedInvitation2 eventId={eventId} groupId={groupId}/>
               </div>
             </div>
           </div>

@@ -21,10 +21,10 @@ export const EventsEdit= ( props ) => {
     const [evStartDate, setEvStartDate] = useState("");
     const [evEndDate, setEvEndDate] = useState("");
 
-    console.log("name: ", evName)
-    console.log("startDate: ", evStartDate)
-    console.log("endDate: ", evEndDate)
-    console.log("EventsType: ", eventsType)
+    // console.log("name: ", evName)
+    // console.log("startDate: ", evStartDate)
+    // console.log("endDate: ", evEndDate)
+    // console.log("EventsType: ", eventsType)
 
     // const evIdChange= (e) =>{
     //     setEvId(e.target.value)

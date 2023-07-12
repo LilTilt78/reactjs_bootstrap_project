@@ -20,20 +20,3 @@ export const GroupsFetchAsync = () => (dispatch, getState) => {
       return json
     })
 }
-
-
-// const groupTypeFetch = () => (dispatch, getState) => {
-//     GroupsQuery()
-//       .then(response => response.json())
-//       .then(json => {
-//         // extract data from groupPage, ? => if data exist, else doesn't create an error
-//         const GroupTypeSetter = json.data?.groupPage
-//         if (GroupTypeSetter) {
-//           setGroupTypeSetter(GroupTypeSetter)
-//           //console.log(presenceType);
-//         } else {
-//           console.log("Error ocurred in groupTypeFetch function for fetching data from database: \n", console.error());
-//         }
-//         return json
-//       })
-//   }

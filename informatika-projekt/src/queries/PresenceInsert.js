@@ -47,7 +47,7 @@ const PresenceInsertJSON = (event_id, user_id, invitation_id, presencetype_id) =
 });
 
 
-export const PresenceInsert = (event_id, user_id, invitation_id, presencetype_id) => 
+export const PresenceInsert = ({event_id, user_id, invitation_id, presencetype_id}) => 
     authorizedFetch('/gql', {
     body: JSON.stringify(PresenceInsertJSON(event_id, user_id, invitation_id, presencetype_id))
   })

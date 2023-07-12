@@ -3,8 +3,11 @@ import { useSelector } from "react-redux";
 import { EventDetail } from "./EventDetailButton";
 
 export const SvgSetOfEvents = () => {
-    const events = useSelector((state) => state.events);
-  
+    let events = useSelector((state) => state.events);
+
+    events = events.slice().sort(function(a, b){const startA = new Date(a.startdate); const startB = new Date(b.startdate); return startA - startB});
+    console.log(events)
+
     return (
       <>
         <div className='container-fluid bg-dark text-light' style={{width: '1000px'}}>
