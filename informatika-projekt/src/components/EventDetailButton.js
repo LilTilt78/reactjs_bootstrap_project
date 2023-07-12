@@ -6,17 +6,11 @@ import { ShowPresences}  from './PresencesTable';
 import { EventsEdit } from '../components/EditEventButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeDetail } from '../features/EventDisplaySlice';
-import { changeEditDetail } from '../features/EventEditSlice';
-
-
 
 export const EventDetail= ({ eventDetail }) => {
 
   const event = useSelector((state) => state.eventDetail)
   const dispatch = useDispatch()
-
-
-  // console.log("event: ", event);
 
   const [evId, setEvId] = useState("");
   const [evName, setEvName] = useState("");
@@ -31,13 +25,12 @@ export const EventDetail= ({ eventDetail }) => {
       setEvStartDate(event.startdate);
       setEvEndDate(event.enddate);
     }
-    // console.log("help",event.eventType);
 
     return (
         <>
         <a className="btn btn-dark" data-bs-toggle="modal" href="#detailEventModal" role="button" onClick={()=>{dispatch(changeDetail(eventDetail))}}>Detail</a>
-            <div className="modal fade" id="detailEventModal" aria-hidden="true" aria-labelledby="detailEventModalLabel" tabIndex="-1">
-              <div className="modal-dialog modal-dialog-centered">
+          <div className="modal fade" id="detailEventModal" aria-hidden="true" aria-labelledby="detailEventModalLabel" tabIndex="-1">
+            <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                   <div className="modal-header">
                     <h5 className="modal-title" id="detailEventModalLabel">Event Detail</h5>
@@ -71,7 +64,7 @@ export const EventDetail= ({ eventDetail }) => {
                         </div>
                     </form>
                   </div>
-                  <div class="modal-footer">
+                  <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button className="btn btn-warning" data-bs-target="#editEventModal" data-bs-toggle="modal" data-bs-dismiss="modal" onClick={setValues}>Edit</button>
                         <button className="btn btn-dark" data-bs-target="#presencesEventModal" data-bs-toggle="modal" data-bs-dismiss="modal">Show presences</button>
@@ -121,59 +114,5 @@ export const EventDetail= ({ eventDetail }) => {
               </div>
             </div>
         </>
-
-
-
-
-    //     <div className="container p-2">
-
-    //     <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailModal" data-bs-dismiss="modal">Detail</button>
-    //     <div className="modal fade" id="detailModal" role='dialog' aria-hidden="true" tabIndex="-1">
-    //         <div className="modal-dialog modal-lg modal-dialog-centered">
-    //             <div className="modal-content">
-    //             <div className="modal-header">
-    //                 <h1 className="modal-title fs-5" id="exampleModalLabel">Event Detail</h1>
-    //                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    //             </div>
-    //             <div className="modal-body">
-    //                 <form>
-    //                 <div className="mb-3">
-    //                     <label className="col-form-label">ID:</label>
-    //                     <input type="text" className="form-control" id="evID" value={props.evId}></input>
-    //                 </div>
-    //                 <div className="mb-3">
-    //                     <label className="col-form-label">Name:</label>
-    //                     <input type="text" className="form-control" id="evName" value={props.evName}></input>
-    //                 </div>
-    //                 <div className="mb-3">
-    //                     <label className="col-form-label">Last change:</label>
-    //                     <input type="text" className="form-control" id="evLastChange" value={props.evLastChange}></input>
-    //                 </div>
-    //                 <div className="mb-3">
-    //                     <label className="col-form-label">Start date:</label>
-    //                     <input type="text" className="form-control" id="evStartDate" value={props.evStartDate}></input>
-    //                 </div>
-    //                 <div className="mb-3">
-    //                     <label className="col-form-label">End date:</label>
-    //                     <input type="text" className="form-control" id="evEndDate" value={props.evEndDate}></input>
-    //                 </div>
-    //                 </form>
-    //             </div>
-    //             <div className="modal-footer">
-    //                 <EventsEdit 
-    //                     evId={evId}
-    //                     evName={evName}
-    //                     evLastChange={evLastChange}
-    //                     evStartDate={evStartDate}
-    //                     evEndDate={evEndDate}
-    //                 />
-    //                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-    //                 <button type="button" className="btn btn-primary">Save</button>
-    //             </div>
-    //             </div>
-    //         </div>
-    //     </div>
-        
-    //   </div>
-    )
-  }
+  )
+}

@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'jquery/dist/jquery.min.js';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { AddGroupInvitation } from './GroupInvitationButton';
 import { AddUserInvitation } from './UserInvitationButton';
 import { InviteDetail } from './InvitationDetailButton';
@@ -18,7 +18,6 @@ export const InvitationsCard= () => {
                 <thead>
                   <tr>
                     <td width="100%" style={{backgroundColor: '#9f3'}}>Event name:</td>
-                    {/* <td width="30%" style={{backgroundColor: '#9f3'}}></td> */}
                   </tr>
                 </thead>
               </table>

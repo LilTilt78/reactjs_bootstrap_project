@@ -1,12 +1,9 @@
 import { useSelector } from 'react-redux';
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
-import { UsersFetchAsync } from '../actions/FetchUsers';
 import { SaveAddedInvitation } from './SaveAddedInvitationButton';
 
 export const AddUserInvitation = () => {
  
-    const dispatch = useDispatch()
     const events = useSelector((state) => state.events);
     const users = useSelector((state) => state.users);
 
@@ -15,12 +12,10 @@ export const AddUserInvitation = () => {
 
     const evIdChange = (e) =>{
         setEvId(e.target.value);
-        console.log("EventId: ", eventId);
     }
 
     const userIdChange = (e) =>{
         setUserId(e.target.value);
-        console.log("UserId: ", userId);
     }
 
     return (
@@ -46,14 +41,14 @@ export const AddUserInvitation = () => {
                 <div className='container'>
                   <label className="col-form-label">Users:</label>
                   <select className='form-select' aria-label='Default select example' onChange={userIdChange}>
-                  <option disabled selected>Choose user/users</option>
+                  <option disabled selected>Choose user</option>
                     { users.map((user)=> 
                       <option key={user.id} value={user.id}>{user.name} {user.surname}</option>
                     )}
                   </select>
                 </div>
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <SaveAddedInvitation  eventId={eventId} userId={userId}/>
               </div>

@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux';
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { EventsTypeFetchAsync } from '../actions/FetchEventsType';
@@ -9,18 +8,12 @@ import { EventTypeSelect } from './EventTypeSelect';
 export const AddEvent = () => {
 
     const dispatch = useDispatch()  
-    // const eventsType = useSelector((state) => state.eventsType);
 
     const [evStartDate, setEvStartDate] = useState("2023-05-24T10:00");
     const [evEndDate, setEvEndDate] = useState("2023-05-24T11:00");
 
     const [evTypeId, setEvTypeId] = useState("");
     const [evName, setEvName] = useState("");
-
-    // const evTypeIdChange= (e) =>{
-    //     setEvTypeId(e.target.value)
-    //     console.log("ID: ", evTypeId)
-    // }
 
     const evStartDateChange= (e) =>{
         setEvStartDate(e.target.value)
@@ -37,7 +30,6 @@ export const AddEvent = () => {
     const OnTypeRecieve = (evType) => {
       setEvTypeId(evType);
     }
-
   
     return (
       <>
@@ -53,16 +45,9 @@ export const AddEvent = () => {
                 <div className='container'>
                   <div className="mb-3">
                     <EventNameInput OnNameRecieve={OnNameRecieve}/>
-                    {/* <label className="col-form-label">Name:</label>
-                    <input type="text" className="form-control" id="evName" value={evName} onChange={(e) => {setEvName(e.target.value)}}></input> */}
                   </div>
                   <label className="col-form-label">Choose Event Type:</label>
                   <EventTypeSelect OnTypeRecieve={OnTypeRecieve}/>
-                  {/* <select className='form-select' aria-label='Default select example' onChange={evTypeIdChange}>
-                    { eventsType.map((eventType)=> 
-                      <option key={eventType.id} value={eventType.id}>{eventType.name}</option>
-                    )}
-                  </select> */}
                   <div className="mb-3">
                     <label className="col-form-label">Start date:</label>
                     <input type="datetime-local" className="form-control" id="evStartDate" value={evStartDate} onChange={evStartDateChange}></input>
@@ -73,7 +58,7 @@ export const AddEvent = () => {
                   </div>
                 </div>
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <SaveAddedEvent name={evName} typeId={evTypeId} startDate={ evStartDate } endDate={evEndDate}/>
               </div>

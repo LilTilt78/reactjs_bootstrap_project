@@ -1,7 +1,5 @@
 import { authorizedFetch } from './authorizedFetch';
 
-
-// const query
 const EventsInsertJSON = (eventName, eventTypeID, startDate, endDate) => ({
     "query":
         `mutation ($event_name:String!, $event_type_id:ID!, $event_start_date:DateTime, $event_end_date:DateTime) {
@@ -52,5 +50,3 @@ export const EventsInsert = (props) =>
     authorizedFetch('/gql', {
     body: JSON.stringify(EventsInsertJSON(props.eventName, props.eventTypeID, props.eventStartDate, props.eventEndDate))
   })
-
-  // button pro definici typu události

@@ -5,14 +5,7 @@ export const SaveEditedEvent = ({ evId, evLastChange, evName, evStartDate, evEnd
 
     const handleEditEvent = async () => {
     try{
-      console.log("ID: ", evId);
-      console.log("Name: ", evName);
-      console.log("LastChange: ", evLastChange);
-      console.log("Start: ", evStartDate);
-      console.log("End: ", evEndDate);
-      console.log("Type: ", evTypeId);
       await EventsMutation({id:evId, lastchange:evLastChange, newName:evName, startDate:evStartDate, endDate:evEndDate, typeId:evTypeId});
-      console.log("Mutace propběla");
       alert("Změna úspěšně proběhla");
     }
     catch (error) {

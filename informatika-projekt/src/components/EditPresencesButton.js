@@ -4,9 +4,6 @@ import 'jquery/dist/jquery.min.js';
 import React from "react";
 
 export const EditPresences= (props) => {
-
-  
-    
    
     return (
       <div className="container p-2">

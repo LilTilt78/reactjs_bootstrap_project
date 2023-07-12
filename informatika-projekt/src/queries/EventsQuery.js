@@ -1,9 +1,5 @@
 import { authorizedFetch } from './authorizedFetch';
 
-/**
- * Funkce
- *  
- */
 export const EventsQueryJSON = () => ({
     "query":
         `{

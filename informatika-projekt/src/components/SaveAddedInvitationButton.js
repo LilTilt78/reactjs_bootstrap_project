@@ -19,4 +19,4 @@ export const SaveAddedInvitation = ({ eventId, userId }) => {
   return (
     <button className="btn btn-success" data-bs-dismiss="modal" onClick={() => {dispatch(handleAddInvitation(eventId, userId))}}>Save</button>
   )
-  }
+}

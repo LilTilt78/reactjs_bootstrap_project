@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'jquery/dist/jquery.min.js';
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { changeDetail } from '../features/EventDisplaySlice';
 
@@ -49,7 +49,7 @@ export const InviteDetail= ({ eventDetail }) => {
                         </div>
                     </form>
                   </div>
-                  <div class="modal-footer">
+                  <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                   </div>
                 </div>

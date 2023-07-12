@@ -3,9 +3,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'jquery/dist/jquery.min.js';
 import { EventDetail } from './EventDetailButton';
 import { AddEvent } from './AddEventButton';
-import { useDispatch, useSelector } from 'react-redux';
-import { changeDetail } from '../features/EventDisplaySlice';
-
+import { useSelector } from 'react-redux';
 
 export const EventsCard= () => {
 
@@ -42,5 +40,5 @@ export const EventsCard= () => {
             <AddEvent />
             </div>
         </div>
-    )
-  }
+  )
+}

@@ -1,11 +1,9 @@
 import { useSelector } from 'react-redux';
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
 import { SaveAddedInvitation2 } from './SaveAddedInvitation2Button';
 
 export const AddGroupInvitation = () => {
  
-    const dispatch = useDispatch()
     const events = useSelector((state) => state.events);
     const groups = useSelector((state) => state.groups);
 
@@ -50,7 +48,7 @@ export const AddGroupInvitation = () => {
                   </select>
                 </div>
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <SaveAddedInvitation2 eventId={eventId} groupId={groupId}/>
               </div>

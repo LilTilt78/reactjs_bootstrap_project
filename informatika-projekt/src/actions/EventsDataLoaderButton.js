@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import  { EventsQuery }  from '../queries/EventsQuery';
+import { EventsQuery }  from '../queries/EventsQuery';
 import { useDispatch } from 'react-redux';
 import { loadData } from '../features/EventSlice';
 import { useState } from 'react';

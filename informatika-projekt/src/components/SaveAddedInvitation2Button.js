@@ -7,7 +7,6 @@ export const SaveAddedInvitation2 = ({ eventId, groupId }) => {
   const dispatch = useDispatch()
 
   const groupMemebersFetch = (eventId, groupId) => (dispatch, getState) => {
-    // Funkce pro načtení členů skupiny pomocí GroupByIdQuery
     GroupByIdQuery(groupId)
       .then(response => response.json())
       .then(json => {
@@ -30,6 +29,6 @@ export const SaveAddedInvitation2 = ({ eventId, groupId }) => {
 
   
   return (
-    <button className="btn btn-secondary" onClick={() => {dispatch(groupMemebersFetch(eventId, groupId))}}>Save</button>
+    <button className="btn btn-success" onClick={() => {dispatch(groupMemebersFetch(eventId, groupId))}}>Save</button>
   )
 }
