@@ -2,21 +2,33 @@ import { useSelector } from 'react-redux';
 import React, { useState } from "react";
 import { SaveAddedInvitation2 } from './SaveAddedInvitation2Button';
 
+/**
+ * Komponenta AddGroupInvitation pro přidání pozvánky pro skupinu.
+ * @function
+ * @returns {JSX.Element} Element komponenty pro přidání pozvánky pro skupinu.
+ */
 export const AddGroupInvitation = () => {
- 
-    const events = useSelector((state) => state.events);
-    const groups = useSelector((state) => state.groups);
+  const events = useSelector((state) => state.events);
+  const groups = useSelector((state) => state.groups);
 
-    const [eventId, setEvId] = useState("");
-    const [groupId, setGroupId] = useState("");
+  const [eventId, setEvId] = useState("");
+  const [groupId, setGroupId] = useState("");
 
-    const evIdChange = (e) =>{
-        setEvId(e.target.value);
-    }
+  /**
+   * Funkce pro změnu ID události.
+   * @param {object} e - Událost změny hodnoty vstupního pole.
+   */
+  const evIdChange = (e) => {
+      setEvId(e.target.value);
+  };
 
-    const groupIdChange = (e) =>{
-        setGroupId(e.target.value);
-    }
+  /**
+   * Funkce pro změnu ID skupiny.
+   * @param {object} e - Událost změny hodnoty vstupního pole.
+   */
+  const groupIdChange = (e) => {
+      setGroupId(e.target.value);
+  };
 
     return (
       <>

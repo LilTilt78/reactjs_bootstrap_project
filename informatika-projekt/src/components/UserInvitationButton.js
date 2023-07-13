@@ -2,6 +2,11 @@ import { useSelector } from 'react-redux';
 import React, { useState } from "react";
 import { SaveAddedInvitation } from './SaveAddedInvitationButton';
 
+/**
+ * Komponenta AddUserInvitation pro přidání uživatelské pozvánky.
+ * Komponenta zobrazuje formulář pro výběr události a uživatele, a následně volá příslušnou akci pro přidání pozvánky.
+ * @function
+ */
 export const AddUserInvitation = () => {
  
     const events = useSelector((state) => state.events);
@@ -10,10 +15,18 @@ export const AddUserInvitation = () => {
     const [eventId, setEvId] = useState("");
     const [userId, setUserId] = useState("");
 
+    /**
+    * Funkce pro změnu vybraného ID události.
+    * @param {Object} e - Událost změny hodnoty ve formuláři.
+    */
     const evIdChange = (e) =>{
         setEvId(e.target.value);
     }
 
+    /**
+    * Funkce pro změnu vybraného ID uživatele.
+    * @param {Object} e - Událost změny hodnoty ve formuláři.
+    */
     const userIdChange = (e) =>{
         setUserId(e.target.value);
     }

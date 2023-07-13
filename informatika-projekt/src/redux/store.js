@@ -6,6 +6,11 @@ import EventEditSlice from '../features/EventEditSlice'
 import groupSlice from '../features/GroupSlice'
 import userSlice from '../features/UserSlice'
 
+/**
+ * Konfiguruje Redux store s jednotlivými reducery.
+ * @module store
+ * @type {Object} store - Redux store.
+ */
 export const store = configureStore({
     reducer: {
         events : eventSlice,

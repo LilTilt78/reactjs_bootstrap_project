@@ -1,13 +1,22 @@
 import React, { useState } from "react";
 
-export const EventNameInput = ({OnNameRecieve}) => {
-
+/**
+ * Komponenta EventNameInput pro vstup názvu události.
+ * @function
+ * @param {object} OnNameRecieve - Vstupní vlastnosti komponenty.
+ * @returns {JSX.Element} Element komponenty pro vstup názvu události.
+ */
+export const EventNameInput = ({ OnNameRecieve }) => {
     const [evName, setEvName] = useState("");
 
-    const evNameChange = (e) =>{
-        setEvName(e.target.value)
-        OnNameRecieve(e.target.value)
-    }
+    /**
+     * Funkce pro změnu názvu události.
+     * @param {object} e - Událost změny hodnoty vstupního pole.
+     */
+    const evNameChange = (e) => {
+        setEvName(e.target.value);
+        OnNameRecieve(e.target.value);
+    };
 
     return (
         <div className='content-container'>

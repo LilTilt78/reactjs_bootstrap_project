@@ -3,20 +3,28 @@ import { useDispatch } from 'react-redux';
 import { loadData } from '../features/EventSlice';
 import { useState } from 'react';
 
-export const EventSelect= () => {
+/**
+ * Komponenta EventSelect pro výběr události.
+ * @function
+ */
+export const EventSelect = () => {
+  const dispatch = useDispatch();
+  const [dataLoaded, setDataLoaded] = useState(false);
 
-  const dispatch = useDispatch()  
-  const [dataLoaded, setDataLoaded] = useState(false)
-
-    const fetchData = async () => {
-      try {
-        const response = await EventsQuery();
-        const data = await response.json();
-        dispatch(loadData(data.data.eventPage));
-        setDataLoaded(true);
-      } catch (error) {
-      }
-    };
+  /**
+   * Asynchronní funkce pro načítání dat událostí.
+   * @returns {Promise<void>} Slouží pro načtení dat o událostech a dispečování akce 'loadData'.
+   */
+  const fetchData = async () => {
+    try {
+      const response = await EventsQuery(); // Volání funkce EventsQuery pro načtení dat událostí
+      const data = await response.json(); // Převod odpovědi na formát JSON
+      dispatch(loadData(data.data.eventPage)); // Dispatch akce 'loadData' s načtenými událostmi
+      setDataLoaded(true); // Nastavení příznaku, že data byla načtena
+    } catch (error) {
+      // V případě chyby ji zachytáváme, ale neřešíme
+    }
+  };
  
   return (
     <div>

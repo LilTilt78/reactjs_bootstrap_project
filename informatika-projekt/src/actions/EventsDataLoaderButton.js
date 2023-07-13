@@ -6,24 +6,32 @@ import { useState } from 'react';
 import { UsersFetchAsync } from './FetchUsers';
 import { GroupsFetchAsync } from './FetchGroups';
 
+/**
+* Komponenta EventsLoader pro načtení dat.
+* @function
+*/
 export const EventsLoader= () => {
 
   const dispatch = useDispatch()  
   const [dataLoaded, setDataLoaded] = useState(false)
 
-    const fetchData = async () => {
-      try {
-        const response = await EventsQuery();
-        const data = await response.json();
-        console.log(data.data.eventPage);
-        dispatch(loadData(data.data.eventPage));
-        setDataLoaded(true);
-        dispatch(UsersFetchAsync())
-        dispatch(GroupsFetchAsync())
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+  /**
+   * Asynchronní funkce pro načítání dat.
+   * @returns {Promise<void>} Slouží pro načtení dat o událostech.
+   */
+  const fetchData = async () => {
+    try {
+      const response = await EventsQuery(); // Volání funkce EventsQuery pro získání dat o událostech
+      const data = await response.json(); // Převod odpovědi na formát JSON
+      console.log(data.data.eventPage); // Výpis dat o stránce událostí do konzole
+      dispatch(loadData(data.data.eventPage)); // Dispatch akce pro načtení dat do store
+      setDataLoaded(true); // Nastavení příznaku, že data byla načtena
+      dispatch(UsersFetchAsync()); // Dispatch asynchronní akce pro načtení uživatelů
+      dispatch(GroupsFetchAsync()); // Dispatch asynchronní akce pro načtení skupin
+    } catch (error) {
+      console.error('Error fetching data:', error); // Výpis chyby při načítání dat
+    }
+  };
  
   return (
     <div>

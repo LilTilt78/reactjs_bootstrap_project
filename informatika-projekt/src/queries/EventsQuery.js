@@ -1,5 +1,10 @@
 import { authorizedFetch } from './authorizedFetch';
 
+/**
+ * Vytvoří JSON pro GraphQL dotaz EventsQuery.
+ * @function
+ * @returns {Object} JSON pro dotaz EventsQuery.
+ */
 export const EventsQueryJSON = () => ({
     "query":
         `{
@@ -43,8 +48,8 @@ export const EventsQueryJSON = () => ({
 
 /**
  * Realizace dotazu na server. Vyuziva autorizedFetch (zapouzdreni)
+ * @function
  */
-
 export const EventsQuery = () =>
     authorizedFetch('/gql', {
         body: JSON.stringify(EventsQueryJSON()),

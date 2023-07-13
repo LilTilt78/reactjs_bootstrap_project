@@ -1,33 +1,52 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// A Redux slice for managing the state of the projects
+/**
+ * Redux slice pro správu stavu typů událostí.
+ * @function
+ */
 export const eventTypeSlice = createSlice({
-    name: "eventsType",
-    initialState: [],
-    reducers: {
-        // A reducer that adds a new project to the projects state array
-      loadData: (state, action) => {
-        const eventsType = action.payload
-        state = [...state, ...eventsType]
-        return state
-        },
-      
-      addData: (state, action) => {
-          const newData = action.payload
-          state.push(newData)
-          return state
-      }, 
-      
-      updateData: (state, action) => {
-          const updateData = action.payload
-          state = state.map(data => data.id === updateData.id ? {...data, ...updateData} : data)
-          return state
-      },
-  },
-})
+  name: "eventsType",
+  initialState: [],
+  reducers: {
+    /**
+     * Reduktor pro načtení dat typů událostí.
+     * @param {Array} state - Stav slicu.
+     * @param {Object} action - Akce s payloadem obsahujícím načtená data.
+     */
+    loadData: (state, action) => {
+      const eventsType = action.payload;
+      state = [...state, ...eventsType];
+      return state;
+    },
 
-// Export the addProject action creator from the projectsSlice
+    /**
+     * Reduktor pro přidání nového typu události do stavu.
+     * @param {Array} state - Stav slicu.
+     * @param {Object} action - Akce s payloadem obsahujícím nová data.
+     */
+    addData: (state, action) => {
+      const newData = action.payload;
+      state.push(newData);
+      return state;
+    },
+
+    /**
+     * Reduktor pro aktualizaci dat typu události.
+     * @param {Array} state - Stav slicu.
+     * @param {Object} action - Akce s payloadem obsahujícím aktualizovaná data.
+     */
+    updateData: (state, action) => {
+      const updateData = action.payload;
+      state = state.map((data) =>
+        data.id === updateData.id ? { ...data, ...updateData } : data
+      );
+      return state;
+    },
+  },
+});
+
+// Export akcí loadData, addData, updateData z eventTypeSlice
 export const { loadData, addData, updateData } = eventTypeSlice.actions
 
-// Export the projectsSlice reducer
+// Export eventTypeSlice reduceru
 export default eventTypeSlice.reducer

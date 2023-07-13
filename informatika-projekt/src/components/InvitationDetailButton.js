@@ -5,7 +5,12 @@ import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { changeDetail } from '../features/EventDisplaySlice';
 
-
+/**
+ * Komponenta InviteDetail pro zobrazení detailů pozvánky.
+ * @function
+ * @param {object} eventDetail - Detaily události.
+ * @returns {JSX.Element} Element komponenty pro zobrazení detailů pozvánky.
+ */
 export const InviteDetail= ({ eventDetail }) => {
 
   const event = useSelector((state) => state.eventDetail)

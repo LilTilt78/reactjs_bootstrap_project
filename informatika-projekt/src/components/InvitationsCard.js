@@ -6,10 +6,13 @@ import { AddGroupInvitation } from './GroupInvitationButton';
 import { AddUserInvitation } from './UserInvitationButton';
 import { InviteDetail } from './InvitationDetailButton';
 
+/**
+ * Komponenta InvitationsCard pro zobrazení karet s pozvánkami.
+ * @function
+ * @returns {JSX.Element} Element komponenty pro zobrazení karet s pozvánkami.
+ */
 export const InvitationsCard= () => {
-
   const events = useSelector((state) => state.events);
-
 
     return (
         <div className="card" style={{width: '1000px'}}>

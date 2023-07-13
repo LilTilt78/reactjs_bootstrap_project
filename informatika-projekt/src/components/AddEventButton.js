@@ -5,31 +5,49 @@ import { SaveAddedEvent } from './SaveAddedEventButton';
 import { EventNameInput } from './EventNameInputBox';
 import { EventTypeSelect } from './EventTypeSelect';
 
+/**
+ * Komponenta AddEvent pro přidání události.
+ * @function
+ */
 export const AddEvent = () => {
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch()  
+  const [evStartDate, setEvStartDate] = useState("2023-05-24T10:00");
+  const [evEndDate, setEvEndDate] = useState("2023-05-24T11:00");
+  const [evTypeId, setEvTypeId] = useState("");
+  const [evName, setEvName] = useState("");
 
-    const [evStartDate, setEvStartDate] = useState("2023-05-24T10:00");
-    const [evEndDate, setEvEndDate] = useState("2023-05-24T11:00");
+  /**
+   * Funkce pro změnu počátečního data události.
+   * @param {object} e - Událost změny hodnoty vstupního pole.
+   */
+  const evStartDateChange = (e) => {
+      setEvStartDate(e.target.value)
+  }
 
-    const [evTypeId, setEvTypeId] = useState("");
-    const [evName, setEvName] = useState("");
+  /**
+   * Funkce pro změnu koncového data události.
+   * @param {object} e - Událost změny hodnoty vstupního pole.
+   */
+  const evEndDateChange = (e) => {
+      setEvEndDate(e.target.value)
+  }
 
-    const evStartDateChange= (e) =>{
-        setEvStartDate(e.target.value)
-    }
-
-    const evEndDateChange= (e) =>{
-        setEvEndDate(e.target.value)
-    }
-
-    const OnNameRecieve = (evName) => {
+  /**
+   * Funkce pro přijetí názvu události z komponenty EventNameInput.
+   * @param {string} evName - Název události.
+   */
+  const OnNameRecieve = (evName) => {
       setEvName(evName);
-    }
+  }
 
-    const OnTypeRecieve = (evType) => {
+  /**
+   * Funkce pro přijetí typu události z komponenty EventTypeSelect.
+   * @param {string} evType - Typ události.
+   */
+  const OnTypeRecieve = (evType) => {
       setEvTypeId(evType);
-    }
+  }
   
     return (
       <>

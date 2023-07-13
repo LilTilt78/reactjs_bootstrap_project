@@ -2,9 +2,15 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { EventDetail } from "./EventDetailButton";
 
+/**
+ * Komponenta SvgSetOfEvents pro zobrazení událostí ve formě SVG tabulky.
+ * Události jsou seřazeny podle data začátku.
+ * @function
+ */
 export const SvgSetOfEvents = () => {
-    let events = useSelector((state) => state.events);
 
+    let events = useSelector((state) => state.events);
+    // Seřazení událostí podle data začátku
     events = events.slice().sort(function(a, b){const startA = new Date(a.startdate); const startB = new Date(b.startdate); return startA - startB});
 
     return (

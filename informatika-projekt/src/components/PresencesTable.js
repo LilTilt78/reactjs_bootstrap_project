@@ -1,5 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+/**
+ * Komponenta ShowPresences pro zobrazení seznamu přítomností.
+ * @function
+ * @param {Object[]} props.presences - Pole přítomností.
+ * @returns {JSX.Element} Element komponenty pro zobrazení seznamu přítomností.
+ */
 export const ShowPresences = (props) => {
   
     return (

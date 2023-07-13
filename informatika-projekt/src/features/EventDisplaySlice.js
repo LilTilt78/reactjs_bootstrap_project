@@ -1,19 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// A Redux slice for managing the state of the project add form
+/**
+ * Redux slice pro správu stavu detailu.
+ * @function
+ */
 export const detailSlice = createSlice({
     name: "detail",
     initialState: {},
     reducers: {
-        changeDetail: (state, action) => {
-            state = action.payload;
-            return state
-        },
+      /**
+       * Akce pro změnu detailu.
+       * @param {Object} state - Stav slicu.
+       * @param {Object} action - Akce s payloadem.
+       */
+      changeDetail: (state, action) => {
+        state = action.payload;
+        return state;
+      },
     },
-})
-
-// Export the changeFormState action creator from the projectsAddFormSlice
-export const { changeDetail } = detailSlice.actions
-
-// Export the projectsAddFormSlice reducer
-export default detailSlice.reducer
+  });
+  
+  // Export akce changeDetail z detailSlice
+  export const { changeDetail } = detailSlice.actions;
+  
+  // Export detailSlice reduceru
+  export default detailSlice.reducer;

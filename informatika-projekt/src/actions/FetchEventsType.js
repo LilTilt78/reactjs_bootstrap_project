@@ -2,19 +2,19 @@ import { loadData } from "../features/EventTypeSlice";
 import { EventsTypeQuery } from "../queries/EventsTypePageQuery";
 
 /**
- * An asynchronous action creator that fetches events and dispatches the 'loadProjects' action.
- *
- * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
+ * Asynchronní action creator, který načítá události a dispečuje akci 'loadData'.
+ * @function
+ * @returns {Function} Funkce, která přijímá funkce 'dispatch' a 'getState' z Reduxu.
  */
 export const EventsTypeFetchAsync = () => (dispatch, getState) => {
-  // Call the EventsQuery function to fetch events
+  // Zavolá funkci EventsTypeQuery pro načtení událostí
   EventsTypeQuery()
     .then(response => response.json())
     .then(json => {
-      // Extract the events data from the JSON response
+      // Extrahuje data o událostech z JSON odpovědi
       const eventsPage = json.data?.eventTypePage
       if (eventsPage) {
-        // Dispatch the 'loadData' action with the fetched events
+        // Dispečuje akci 'loadData' s načtenými událostmi
         dispatch(loadData(eventsPage))
       }
       return json

@@ -1,21 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// A Redux slice for managing the state of the projects
+/**
+ * Redux slice pro správu stavu skupin.
+ * @function
+ */
 export const groupSlice = createSlice({
-    name: "groups",
-    initialState: [],
-    reducers: {
-        // A reducer that adds a new project to the projects state array
-      loadGroups: (state, action) => {
-        const groups= action.payload
-        state = [...state, ...groups]
-        return state
-        },
+  name: "groups",
+  initialState: [],
+  reducers: {
+    /**
+     * Reduktor pro načítání dat skupin.
+     * @param {Array} state - Stav slice.
+     * @param {Object} action - Akce s daty, která se načítají.
+     */
+    loadGroups: (state, action) => {
+      const groups = action.payload;
+      state = [...state, ...groups];
+      return state;
+    },
   },
-})
+});
 
-// Export the addProject action creator from the projectsSlice
-export const { loadGroups } = groupSlice.actions
+// Export akce loadGroups z groupSlice
+export const { loadGroups } = groupSlice.actions;
 
-// Export the projectsSlice reducer
-export default groupSlice.reducer
+// Export reduktoru groupSlice
+export default groupSlice.reducer;

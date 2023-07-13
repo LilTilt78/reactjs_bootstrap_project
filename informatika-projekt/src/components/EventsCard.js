@@ -5,10 +5,13 @@ import { EventDetail } from './EventDetailButton';
 import { AddEvent } from './AddEventButton';
 import { useSelector } from 'react-redux';
 
+/**
+ * Komponenta EventsCard pro zobrazení karet událostí.
+ * @function
+ * @returns {JSX.Element} Element komponenty pro zobrazení karet událostí.
+ */
 export const EventsCard= () => {
-
     const events = useSelector((state) => state.events);
-
 
     return (
         <div className="card" style={{width: '1000px'}}>

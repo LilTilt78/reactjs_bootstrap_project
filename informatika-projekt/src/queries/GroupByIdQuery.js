@@ -1,6 +1,11 @@
 import { authorizedFetch } from "./authorizedFetch";
 
-
+/**
+ * Funkce pro vložení události pomocí GraphQL mutace.
+ * @function
+ * @param {string} groupId - ID skupiny.
+ * @returns {Object} JSON objekt pro mutaci EventsInsert.
+ */
 export const GroupByIdJSON = (groupId) => ({
   "query": 
     `query GroupById($groupId: ID!) {
@@ -31,7 +36,13 @@ export const GroupByIdJSON = (groupId) => ({
   }
 })
 
-
+/**
+ * Realizuje dotaz na server.
+ * Využívá funkci authorizedFetch pro komunikaci se serverem.
+ * @function
+ * @param {Object} groupId - ID skupiny.
+ * @returns {Promise<Response>} - Promise reprezentující odpověď ze serveru.
+ */
 export const GroupByIdQuery = (groupId) =>
   authorizedFetch('/gql', {
     body: JSON.stringify(GroupByIdJSON(groupId)),

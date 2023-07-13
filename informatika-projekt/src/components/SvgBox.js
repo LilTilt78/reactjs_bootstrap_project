@@ -2,13 +2,17 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { EventDetail } from "./EventDetailButton";
 
+/**
+ * Komponenta SvgBox pro zobrazení událostí ve formě SVG políček.
+ * @function
+ */
 export const SvgBox = () => {
     const events = useSelector((state) => state.events);
   
     const xVal = 0;
-    const initialYVal = 50; // Initial y position
-    const rowHeight = 150; // Height of each row
-    const boxesPerRow = 4; // Number of boxes per row
+    const initialYVal = 50; // Počáteční pozice y
+    const rowHeight = 150; // Výška každého řádku
+    const boxesPerRow = 4; // Počet políček na řádek
   
     return (
         <>
@@ -17,9 +21,9 @@ export const SvgBox = () => {
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500">
             {events.map((event, index) => {
-            const row = Math.floor(index / boxesPerRow); // Calculate the row index
-            const x = xVal + (index % boxesPerRow) * 250; // Calculate the x position
-            const y = initialYVal + row * rowHeight; // Calculate the y position
+            const row = Math.floor(index / boxesPerRow); // Výpočet indexu řádku
+            const x = xVal + (index % boxesPerRow) * 250; // Výpočet pozice x
+            const y = initialYVal + row * rowHeight; // Výpočet pozice y
     
             return (
                 <g key={event.id}>

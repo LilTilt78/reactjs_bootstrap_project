@@ -1,8 +1,9 @@
 import { authorizedFetch } from './authorizedFetch';
 
 /**
- * Funkce, ktera id namapuje na json predstavujici "velky" (podrobny) dotaz na server
- * @returns 
+ * Vytvoří JSON pro GraphQL dotaz EventsTypeQuery.
+ * @function
+ * @returns {Object} JSON pro dotaz EventsTypeQuery.
  */
 export const EventsTypeJSON = () => ({
     "query":
@@ -16,7 +17,7 @@ export const EventsTypeJSON = () => ({
 
 /**
  * Realizace dotazu na server. Vyuziva autorizedFetch (zapouzdreni)
- * @returns 
+ * @function
  */
 export const EventsTypeQuery = () =>
 authorizedFetch('/gql', {

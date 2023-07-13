@@ -9,14 +9,15 @@ const globalFetchParams = {
 
 /**
  * Zapouzdrujici funkce pro fetch, vytvari mezi vrstvu pro komunikace ze serverem
- * @param {*} path 
- * @param {*} params 
- * @returns 
+ * @function
+ * @param {string} path - Cesta k API endpointu.
+ * @param {Object} params - Volitelné parametry pro fetch.
+ * @returns {Promise} - Promise obsahující výsledek fetch požadavku.
  */
 export const authorizedFetch = (path, params) => {
-    const newParams = {...globalFetchParams, ...params} // allow owerwrite default parameters (globalFetchParams)
+    const newParams = {...globalFetchParams, ...params} // umožňuje přepsání výchozích parametrů (globalFetchParams)
     const overridenPath = '/api/gql'
     return (
-        fetch(overridenPath, newParams) //params.header should be extended with Authorization TOKEN
+        fetch(overridenPath, newParams) //params.header by měl být rozšířen o autorizační TOKEN
     )
 }

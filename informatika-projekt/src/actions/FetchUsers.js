@@ -2,21 +2,28 @@ import { loadUsers } from '../features/UserSlice';
 import { UsersQuery } from '../queries/UsersQuery';
 
 /**
- * An asynchronous action creator that fetches events and dispatches the 'loadProjects' action.
- *
- * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
+ * Asynchronní action creator, který načítá uživatele a dispečuje akci 'loadUsers'.
+ * @function
+ * @returns {Function} Funkce, která přijímá funkce 'dispatch' a 'getState' z Reduxu.
  */
 export const UsersFetchAsync = () => (dispatch, getState) => {
-  // Call the EventsQuery function to fetch events
+  // Zavolá funkci UsersQuery pro načtení uživatelů
   UsersQuery()
     .then(response => response.json())
     .then(json => {
-      // Extract the events data from the JSON response
+      // Extrahuje data o uživatelích z JSON odpovědi
       const usersPage = json.data?.userPage
       if (usersPage) {
-        // Dispatch the 'loadData' action with the fetched events
+        // Dispečuje akci 'loadUsers' s načtenými uživateli
         dispatch(loadUsers(usersPage))
       }
       return json
     })
 }
+
+
+
+
+
+
+

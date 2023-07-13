@@ -6,11 +6,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { SaveEditedEvent } from './SaveEditedEventButton';
 import { EventsTypeFetchAsync } from '../actions/FetchEventsType';
 
-
-export const EventsEdit= ( props ) => {
-
+/**
+ * Komponenta EventsEdit pro úpravu událostí.
+ * @function
+ * @param {object} props - Vstupní vlastnosti komponenty.
+ * @returns {JSX.Element} Element komponenty pro úpravu událostí.
+ */
+export const EventsEdit = (props) => {
     const eventsType = useSelector((state) => state.eventsType);
-    const dispatch = useDispatch() 
+    const dispatch = useDispatch();
 
     const [evId, setEvId] = useState("");
     const [evName, setEvName] = useState("");
@@ -19,40 +23,56 @@ export const EventsEdit= ( props ) => {
     const [evStartDate, setEvStartDate] = useState("");
     const [evEndDate, setEvEndDate] = useState("");
 
-    const evNameChange= (e) =>{
+    /**
+     * Funkce pro změnu názvu události.
+     * @param {object} e - Událost změny hodnoty vstupního pole.
+     */
+    const evNameChange = (e) => {
         setEvName(e.target.value);
         setEvId(props.evEditId);
         setEvLastChange(props.evEditLastChange);
-        evStartDate?setEvStartDate(evStartDate):setEvStartDate(props.evEditStartDate);
-        evEndDate?setEvEndDate(evEndDate):setEvEndDate(props.evEditEndDate);
-        evTypeId?setEvTypeId(evTypeId):setEvTypeId(props.evEditType.id);
+        evStartDate ? setEvStartDate(evStartDate) : setEvStartDate(props.evEditStartDate);
+        evEndDate ? setEvEndDate(evEndDate) : setEvEndDate(props.evEditEndDate);
+        evTypeId ? setEvTypeId(evTypeId) : setEvTypeId(props.evEditType.id);
     }
 
-    const evTypeIdChange= (e) =>{
+    /**
+     * Funkce pro změnu typu události.
+     * @param {object} e - Událost změny hodnoty vstupního pole.
+     */
+    const evTypeIdChange = (e) => {
         setEvTypeId(e.target.value);
         setEvId(props.evEditId);
         setEvLastChange(props.evEditLastChange);
-        evName?setEvName(evName):setEvName(props.evEditName);
-        evStartDate?setEvStartDate(evStartDate):setEvStartDate(props.evEditStartDate);
-        evEndDate?setEvEndDate(evEndDate):setEvEndDate(props.evEditEndDate);
+        evName ? setEvName(evName) : setEvName(props.evEditName);
+        evStartDate ? setEvStartDate(evStartDate) : setEvStartDate(props.evEditStartDate);
+        evEndDate ? setEvEndDate(evEndDate) : setEvEndDate(props.evEditEndDate);
     }
 
-    const evStartDateChange= (e) =>{
+    /**
+     * Funkce pro změnu počátečního data události.
+     * @param {object} e - Událost změny hodnoty vstupního pole.
+     */
+    const evStartDateChange = (e) => {
         setEvStartDate(e.target.value);
         setEvId(props.evEditId);
         setEvLastChange(props.evEditLastChange);
-        evName?setEvName(evName):setEvName(props.evEditName);
-        evEndDate?setEvEndDate(evEndDate):setEvEndDate(props.evEditEndDate);
-        evTypeId?setEvTypeId(evTypeId):setEvTypeId(props.evEditType.id);
+        evName ? setEvName(evName) : setEvName(props.evEditName);
+        evEndDate ? setEvEndDate(evEndDate) : setEvEndDate(props.evEditEndDate);
+        evTypeId ? setEvTypeId(evTypeId) : setEvTypeId(props.evEditType.id);
     }
 
-    const evEndDateChange= (e) =>{
+    /**
+     * Funkce pro změnu koncového data události.
+     * @param {object} e - Událost změny hodnoty vstupního pole.
+     */
+    const evEndDateChange = (e) => {
         setEvEndDate(e.target.value);
         setEvId(props.evEditId);
         setEvLastChange(props.evEditLastChange);
-        evName?setEvName(evName):setEvName(props.evEditName);
-        evStartDate?setEvStartDate(evStartDate):setEvStartDate(props.evEditStartDate);
-        evTypeId?setEvTypeId(evTypeId):setEvTypeId(props.evEditType.id);
+        evName ? setEvName(evName) : setEvName(props.evEditName);
+        evStartDate ? setEvStartDate(evStartDate) : setEvStartDate(props.evEditStartDate);
+        evTypeId ? setEvTypeId(evTypeId) : setEvTypeId(props.evEditType.id);
     }
    
     return (

@@ -7,10 +7,15 @@ import { EventsEdit } from '../components/EditEventButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeDetail } from '../features/EventDisplaySlice';
 
-export const EventDetail= ({ eventDetail }) => {
-
-  const event = useSelector((state) => state.eventDetail)
-  const dispatch = useDispatch()
+/**
+ * Komponenta EventDetail pro zobrazení detailu události.
+ * @function
+ * @param {object} eventDetail - Detail události.
+ * @returns {JSX.Element} Element komponenty pro zobrazení detailu události.
+ */
+export const EventDetail = ({ eventDetail }) => {
+  const event = useSelector((state) => state.eventDetail);
+  const dispatch = useDispatch();
 
   const [evId, setEvId] = useState("");
   const [evName, setEvName] = useState("");
@@ -18,13 +23,17 @@ export const EventDetail= ({ eventDetail }) => {
   const [evStartDate, setEvStartDate] = useState("");
   const [evEndDate, setEvEndDate] = useState("");
 
-    const setValues = async () => {
-      setEvId(event.id);
-      setEvName(event.name);
-      setEvLastChange(event.lastchange);
-      setEvStartDate(event.startdate);
-      setEvEndDate(event.enddate);
-    }
+  /**
+   * Funkce pro nastavení hodnot pro úpravu události.
+   * @returns {Promise<void>} Slouží pro nastavení hodnot pro úpravu události.
+   */
+  const setValues = async () => {
+    setEvId(event.id);
+    setEvName(event.name);
+    setEvLastChange(event.lastchange);
+    setEvStartDate(event.startdate);
+    setEvEndDate(event.enddate);
+  };
 
     return (
         <>

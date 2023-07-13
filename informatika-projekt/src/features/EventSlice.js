@@ -1,29 +1,53 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 
-// A Redux slice for managing the state of the projects
+/**
+ * Redux slice pro správu stavu událostí.
+ * @function
+ */
 export const eventSlice = createSlice({
     name: "events",
     initialState: [],
     reducers: {
-        // A reducer that adds a new project to the projects state array
-      loadData: (state, action) => {
-        const events = action.payload
-        state = [...state, ...events]
-        return state
-        },
-      
-      addData: (state, action) => {
-          const newData = action.payload
-          state.push(newData)
-          return state
-      }, 
-      
-      updateData: (state, action) => {
-          const updateData = action.payload
-          state = state.map(data => data.id === updateData.id ? {...data, ...updateData} : data)
-          return state
-      },
-      
+    /**
+     * Reducer pro načtení dat událostí.
+     * @param {Array} state - Stav slicu.
+     * @param {Object} action - Akce s payloadem obsahujícím načtená data.
+     */
+    loadData: (state, action) => {
+      const events = action.payload;
+      state = [...state, ...events];
+      return state;
+    },
+
+    /**
+     * Reducer pro přidání nové události do stavu.
+     * @param {Array} state - Stav slicu.
+     * @param {Object} action - Akce s payloadem obsahujícím nová data.
+     */
+    addData: (state, action) => {
+      const newData = action.payload;
+      state.push(newData);
+      return state;
+    },
+
+    /**
+     * Reducer pro aktualizaci dat události.
+     * @param {Array} state - Stav slicu.
+     * @param {Object} action - Akce s payloadem obsahujícím aktualizovaná data.
+     */
+    updateData: (state, action) => {
+      const updateData = action.payload;
+      state = state.map((data) =>
+        data.id === updateData.id ? { ...data, ...updateData } : data
+      );
+      return state;
+    },
+
+    /**
+     * Reducer pro přidání přítomnosti k události.
+     * @param {Array} state - Stav slicu.
+     * @param {Object} action - Akce s payloadem obsahujícím přidané přítomnosti.
+     */
       addPresence: (state, action) => {
         const updateData = action.payload
         console.log(updateData)
@@ -31,12 +55,12 @@ export const eventSlice = createSlice({
         const newEvent =  { ...event, presences: updateData.event.presences }
         state = current(state).map(event => event.id === newEvent.id ? newEvent  : event)
         return state
-        },
+      },
   },
 })
 
-// Export the addProject action creator from the projectsSlice
+// Export akcí loadData, addData, updateData, addPresence z eventSlice
 export const { loadData, addData, updateData, addPresence } = eventSlice.actions
 
-// Export the projectsSlice reducer
+// Export eventSlice reduceru
 export default eventSlice.reducer

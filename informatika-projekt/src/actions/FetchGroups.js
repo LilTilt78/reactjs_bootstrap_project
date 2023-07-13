@@ -2,19 +2,19 @@ import { loadGroups} from "../features/GroupSlice";
 import { GroupsQuery } from "../queries/GroupsQuery";
 
 /**
- * An asynchronous action creator that fetches events and dispatches the 'loadProjects' action.
- *
- * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
+ * Asynchronní action creator, který načítá skupiny a dispečuje akci 'loadGroups'.
+ * @function
+ * @returns {Function} Funkce, která přijímá funkce 'dispatch' a 'getState' z Reduxu.
  */
 export const GroupsFetchAsync = () => (dispatch, getState) => {
-  // Call the EventsQuery function to fetch events
+  // Zavolá funkci GroupsQuery pro načtení skupin
   GroupsQuery()
     .then(response => response.json())
     .then(json => {
-      // Extract the events data from the JSON response
+      // Extrahuje data o skupinách z JSON odpovědi
       const groupsPage = json.data?.groupPage
       if (groupsPage) {
-        // Dispatch the 'loadData' action with the fetched events
+        // Dispečuje akci 'loadGroups' s načtenými skupinami
         dispatch(loadGroups(groupsPage))
       }
       return json

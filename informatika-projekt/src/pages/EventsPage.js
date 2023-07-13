@@ -4,6 +4,10 @@ import { SvgBox } from '../components/SvgBox';
 import { InvitationsCard } from '../components/InvitationsCard';
 import { SvgSetOfEvents } from '../components/SvgSetOfEvents';
 
+/**
+ * Komponenta EventsPage pro stránku událostí.
+ * @function 
+ */
 export const EventsPage = () => {
   
     return (
