@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/GroupInvitationButton.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/GroupInvitationButton.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useSelector } from 'react-redux';
+import React, { useState } from "react";
+import { SaveAddedInvitation2 } from './SaveAddedInvitation2Button';
+
+/**
+ * Komponenta AddGroupInvitation pro přidání pozvánky pro skupinu.
+ * @function
+ * @returns {JSX.Element} Element komponenty pro přidání pozvánky pro skupinu.
+ */
+export const AddGroupInvitation = () => {
+  const events = useSelector((state) => state.events);
+  const groups = useSelector((state) => state.groups);
+
+  const [eventId, setEvId] = useState("");
+  const [groupId, setGroupId] = useState("");
+
+  /**
+   * Funkce pro změnu ID události.
+   * @param {object} e - Událost změny hodnoty vstupního pole.
+   */
+  const evIdChange = (e) => {
+      setEvId(e.target.value);
+  };
+
+  /**
+   * Funkce pro změnu ID skupiny.
+   * @param {object} e - Událost změny hodnoty vstupního pole.
+   */
+  const groupIdChange = (e) => {
+      setGroupId(e.target.value);
+  };
+
+    return (
+      &lt;>
+        &lt;a className="btn" style={{backgroundColor: '#9f3'}} data-bs-toggle="modal" href="#addGroupInvitationModal" role="button">Invite Group&lt;/a>
+        &lt;div className="modal fade" id="addGroupInvitationModal" aria-hidden="true" aria-labelledby="addGroupInvitationModalLabel" tabIndex="-1">
+          &lt;div className="modal-dialog modal-dialog-centered">
+            &lt;div className="modal-content">
+              &lt;div className="modal-header">
+                &lt;h5 className="modal-title" id="addGroupInvitationModalLabel">Add Invitation to Presence&lt;/h5>
+                &lt;button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close">&lt;/button>
+              &lt;/div>
+              &lt;div className="modal-body">
+                &lt;div className='container'>
+                  &lt;label className="col-form-label">Event:&lt;/label>
+                  &lt;select className='form-select' aria-label='Default select example' onChange={evIdChange}>
+                    &lt;option disabled selected>Choose event&lt;/option>
+                    { events.map((event)=> 
+                      &lt;option key={event.id} value={event.id}>{event.name}&lt;/option>
+                    )}
+                  &lt;/select>
+                &lt;/div>
+                &lt;div className='container'>
+                  &lt;label className="col-form-label">Groups:&lt;/label>
+                  &lt;select className='form-select' aria-label='Default select example' onChange={groupIdChange}>
+                  &lt;option disabled selected>Choose group/groups&lt;/option>
+                    { groups?.map((group)=> 
+                      &lt;option key={group.id} value={group.id}>{group.name}&lt;/option>
+                    )}
+                  &lt;/select>
+                &lt;/div>
+              &lt;/div>
+              &lt;div className="modal-footer">
+                    &lt;button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close&lt;/button>
+                    &lt;SaveAddedInvitation2 eventId={eventId} groupId={groupId}/>
+              &lt;/div>
+            &lt;/div>
+          &lt;/div>
+        &lt;/div>
+      &lt;/>
+    );
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-store.html">store</a></li></ul><h3>Global</h3><ul><li><a href="global.html#AddEvent">AddEvent</a></li><li><a href="global.html#AddGroupInvitation">AddGroupInvitation</a></li><li><a href="global.html#AddUserInvitation">AddUserInvitation</a></li><li><a href="global.html#EventDetail">EventDetail</a></li><li><a href="global.html#EventNameInput">EventNameInput</a></li><li><a href="global.html#EventSelect">EventSelect</a></li><li><a href="global.html#EventTypeDef">EventTypeDef</a></li><li><a href="global.html#EventTypeSelect">EventTypeSelect</a></li><li><a href="global.html#EventsCard">EventsCard</a></li><li><a href="global.html#EventsEdit">EventsEdit</a></li><li><a href="global.html#EventsInsert">EventsInsert</a></li><li><a href="global.html#EventsInsertJSON">EventsInsertJSON</a></li><li><a href="global.html#EventsLoader">EventsLoader</a></li><li><a href="global.html#EventsMutation">EventsMutation</a></li><li><a href="global.html#EventsMutationJSON">EventsMutationJSON</a></li><li><a href="global.html#EventsPage">EventsPage</a></li><li><a href="global.html#EventsQuery">EventsQuery</a></li><li><a href="global.html#EventsQueryJSON">EventsQueryJSON</a></li><li><a href="global.html#EventsTypeFetchAsync">EventsTypeFetchAsync</a></li><li><a href="global.html#EventsTypeJSON">EventsTypeJSON</a></li><li><a href="global.html#EventsTypeQuery">EventsTypeQuery</a></li><li><a href="global.html#GroupByIdJSON">GroupByIdJSON</a></li><li><a href="global.html#GroupByIdQuery">GroupByIdQuery</a></li><li><a href="global.html#GroupsFetchAsync">GroupsFetchAsync</a></li><li><a href="global.html#GroupsQuery">GroupsQuery</a></li><li><a href="global.html#GroupsQueryJSON">GroupsQueryJSON</a></li><li><a href="global.html#InvitationsCard">InvitationsCard</a></li><li><a href="global.html#InviteDetail">InviteDetail</a></li><li><a href="global.html#PresenceInsert">PresenceInsert</a></li><li><a href="global.html#PresenceInsertJSON">PresenceInsertJSON</a></li><li><a href="global.html#SaveAddedEvent">SaveAddedEvent</a></li><li><a href="global.html#SaveAddedInvitation">SaveAddedInvitation</a></li><li><a href="global.html#SaveAddedInvitation2">SaveAddedInvitation2</a></li><li><a href="global.html#SaveEditedEvent">SaveEditedEvent</a></li><li><a href="global.html#ShowPresences">ShowPresences</a></li><li><a href="global.html#SvgBox">SvgBox</a></li><li><a href="global.html#SvgSetOfEvents">SvgSetOfEvents</a></li><li><a href="global.html#UsersFetchAsync">UsersFetchAsync</a></li><li><a href="global.html#UsersQuery">UsersQuery</a></li><li><a href="global.html#UsersQueryJSON">UsersQueryJSON</a></li><li><a href="global.html#authorizedFetch">authorizedFetch</a></li><li><a href="global.html#detailSlice">detailSlice</a></li><li><a href="global.html#editDetailSlice">editDetailSlice</a></li><li><a href="global.html#eventSlice">eventSlice</a></li><li><a href="global.html#eventTypeSlice">eventTypeSlice</a></li><li><a href="global.html#groupSlice">groupSlice</a></li><li><a href="global.html#handleAddInvitation">handleAddInvitation</a></li><li><a href="global.html#userSlice">userSlice</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Jul 13 2023 10:28:19 GMT+0200 (středoevropský letní čas)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
